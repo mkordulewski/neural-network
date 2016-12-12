@@ -19,9 +19,11 @@ public class WeightGeneratorTest {
 
     @Test
     public void testNextRandomWeight() {
-        double randomWeight = generator.nextRandomWeight();
-        assertThat(randomWeight).isGreaterThanOrEqualTo(-1);
-        assertThat(randomWeight).isLessThanOrEqualTo(1);
+        for (int i=0; i<1000000; i++) {
+            double randomWeight = generator.nextRandomWeight();
+            assertThat(randomWeight).isGreaterThanOrEqualTo(-1);
+            assertThat(randomWeight).isLessThanOrEqualTo(1);
+        }
     }
 
 }
