@@ -2,6 +2,8 @@ package pl.kordulewski.ai;
 
 import org.junit.Test;
 
+import static org.assertj.core.api.StrictAssertions.assertThat;
+
 /**
  * @author Michał Kordulewski
  */
@@ -13,6 +15,9 @@ public class NeuronTest {
         neuron.registerSource(new StaticSource(-1));
         neuron.registerSource(new StaticSource(0));
         neuron.registerSource(new StaticSource(1));
+        double value = neuron.getValue();
+        assertThat(value).isGreaterThanOrEqualTo(-1);
+        assertThat(value).isLessThanOrEqualTo(1);
     }
 
 }

@@ -18,7 +18,10 @@ public class Neuron implements Source {
     }
 
     public double getValue() {
-        // TODO
-        return 0;
+        double result = 0;
+        for (int i=0; i<sources.size();i++) {
+            result += sources.get(i).getValue() * weights.get(i);
+        }
+        return result;
     }
 }
