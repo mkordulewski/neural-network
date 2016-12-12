@@ -13,7 +13,7 @@ public class WeightGenerator {
 
     public double nextRandomWeight() {
         double randomValue = MIN + (MAX - MIN) * generator.nextDouble();
-        return 0;
+        return randomValue;
     }
 
 }
