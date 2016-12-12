@@ -1,9 +1,11 @@
 package pl.kordulewski.ai;
 
+import java.io.Serializable;
+
 /**
  * @author Michał Kordulewski
  */
-public class StaticSource implements Source {
+public class StaticSource implements Source, Serializable {
 
     private double value = 0;
 

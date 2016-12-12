@@ -1,12 +1,13 @@
 package pl.kordulewski.ai;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Michał Kordulewski
  */
-public class Network {
+public class Network implements Serializable {
 
     List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
     List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();

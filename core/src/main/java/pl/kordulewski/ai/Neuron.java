@@ -1,12 +1,13 @@
 package pl.kordulewski.ai;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Michał Kordulewski
  */
-public class Neuron implements Source {
+public class Neuron implements Source, Serializable {
 
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
