@@ -15,6 +15,8 @@ public class Network {
     public Network(List<Neuron> neuronsInInputLayer,
     List<Neuron> neuronsInHiddenLayer,
     List<Neuron> neuronsInOutputLayer) {
+        if (neuronsInInputLayer==null || neuronsInHiddenLayer==null || neuronsInOutputLayer==null)
+            throw new RuntimeException("null is not allowed");
         this.neuronsInInputLayer = neuronsInInputLayer;
         this.neuronsInHiddenLayer = neuronsInHiddenLayer;
         this.neuronsInOutputLayer = neuronsInOutputLayer;
