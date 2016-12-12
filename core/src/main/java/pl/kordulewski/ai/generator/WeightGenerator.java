@@ -1,4 +1,4 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.generator;
 
 import java.util.Random;
 

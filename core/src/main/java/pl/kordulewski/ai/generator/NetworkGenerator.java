@@ -1,4 +1,7 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.generator;
+
+import pl.kordulewski.ai.Network;
+import pl.kordulewski.ai.Neuron;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,7 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.generator;
 
 import org.junit.Test;
+import pl.kordulewski.ai.Network;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
 

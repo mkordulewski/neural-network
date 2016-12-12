@@ -1,5 +1,7 @@
 package pl.kordulewski.ai;
 
+import pl.kordulewski.ai.generator.WeightGenerator;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
