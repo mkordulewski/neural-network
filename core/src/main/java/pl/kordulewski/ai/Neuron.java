@@ -5,6 +5,10 @@ package pl.kordulewski.ai;
  */
 public class Neuron implements Source {
 
+    public void registerSource(Source source) {
+        // TODO
+    }
+
     public double getValue() {
         // TODO
         return 0;
