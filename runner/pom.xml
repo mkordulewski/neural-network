@@ -13,4 +13,11 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>pl.kordulewski.ai</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

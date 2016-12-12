@@ -33,6 +33,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>pl.kordulewski.ai</groupId>
+                <artifactId>core</artifactId>
+                <version>0.1-SNAPSHOT</version>
+            </dependency>
             <!-- FOR UNIT TESTING ONLY -->
             <dependency>
                 <groupId>junit</groupId>
