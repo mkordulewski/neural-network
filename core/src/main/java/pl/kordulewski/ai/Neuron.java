@@ -24,4 +24,9 @@ public class Neuron implements Source {
         }
         return result;
     }
+
+    public List<Source> getSources() {
+        return sources;
+    }
+
 }
