@@ -27,4 +27,12 @@ public class NetworkGeneratorTest {
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);
     }
 
+    @Test
+    public void test333() {
+        Network network = generator.generate(3,3,3);
+        assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(3);
+        assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(3);
+        assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(3);
+    }
+
 }
