@@ -10,10 +10,11 @@ public class Neuron implements Source {
 
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
+    private WeightGenerator generator = new WeightGenerator();
 
     public void registerSource(Source source) {
         sources.add(source);
-        weights.add(0.0);
+        weights.add(generator.nextRandomWeight());
     }
 
     public double getValue() {
