@@ -11,14 +11,18 @@ import java.util.List;
 public class Runner {
 
     public static void main(String... arg) {
+        new Runner().run();
+    }
+
+    public void run() {
         List<String> positiveLearningData = new PositiveInputDataGenerator().generate();
         // TODO generate negative learning data
         List<String> negativeLearningData = new ArrayList<>();
-        System.out.println("Positive learning data:");
+        System.out.println("Positive learning data [" + positiveLearningData.size() + "]:");
         for (String s : positiveLearningData) {
             System.out.println("  " + s);
         }
-        System.out.println("Negative learning data:");
+        System.out.println("Negative learning data [" + negativeLearningData.size() + "]:");
         for (String s : negativeLearningData) {
             System.out.println("  " + s);
         }
