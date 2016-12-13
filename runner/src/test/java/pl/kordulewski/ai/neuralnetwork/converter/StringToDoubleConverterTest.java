@@ -13,6 +13,14 @@ public class StringToDoubleConverterTest {
 
     private StringToDoubleConverter converter = new StringToDoubleConverter();
     private List<Double> result;
+    private String binary;
+
+    @Test
+    public void testConvertStringToBinary() {
+        binary = converter.convertStringToBinary("");
+        assertThat(binary).isNotNull();
+        assertThat(binary).isEmpty();
+    }
 
     @Test
     public void testNull() {
