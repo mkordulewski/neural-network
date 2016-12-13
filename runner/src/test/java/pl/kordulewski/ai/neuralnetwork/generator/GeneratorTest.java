@@ -23,4 +23,13 @@ public class GeneratorTest {
             assertThat(s).isNotEmpty();
         }
     }
+
+    @Test
+    public void testGenerateListOfDoubles() {
+        List<Double> list = generator.generateListOfDoubles(0, 0.0);
+        assertThat(list).isNotNull();
+        assertThat(list).isEmpty();
+        assertThat(list.size()).isEqualTo(0);
+    }
+
 }

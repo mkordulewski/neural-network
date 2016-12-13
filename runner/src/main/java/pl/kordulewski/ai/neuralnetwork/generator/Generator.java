@@ -23,4 +23,12 @@ public class Generator {
         return result;
     }
 
+    public List<Double> generateListOfDoubles(int size, double value) {
+        List<Double> result = new ArrayList<Double>();
+        for (int i=0; i<size; i++) {
+            result.add(value);
+        }
+        return result;
+    }
+
 }
