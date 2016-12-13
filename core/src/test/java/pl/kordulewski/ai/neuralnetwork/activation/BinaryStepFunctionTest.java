@@ -17,4 +17,10 @@ public class BinaryStepFunctionTest {
         assertThat(result).isEqualTo(0);
     }
 
+    @Test
+    public void test2() {
+        double result = func.calculate(0);
+        assertThat(result).isEqualTo(1);
+    }
+
 }
