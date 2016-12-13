@@ -25,4 +25,12 @@ public class BipolarSigmoidalFunctionTest {
         }
     }
 
+    @Test
+    public void test3() {
+        for(double i=0;i<=10;i+=0.01) {
+            double result = func.calculate(i);
+            assertThat(result).isGreaterThanOrEqualTo(0);
+        }
+    }
+
 }
