@@ -7,7 +7,7 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
 /**
  * @author Michał Kordulewski
  */
-public class BiipolarStepFunctionTest {
+public class BipolarStepFunctionTest {
 
     private BipolarStepFunction func = new BipolarStepFunction();
 
