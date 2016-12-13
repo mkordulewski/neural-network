@@ -1,5 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
+import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunction;
+import pl.kordulewski.ai.neuralnetwork.activation.BinaryStepFunction;
 import pl.kordulewski.ai.neuralnetwork.generator.WeightGenerator;
 
 import java.io.Serializable;
@@ -11,6 +13,7 @@ import java.util.List;
  */
 public class Neuron implements Source, Serializable {
 
+    private ActivationFunction activationFunction = new BinaryStepFunction();
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private WeightGenerator generator = new WeightGenerator();
@@ -25,6 +28,7 @@ public class Neuron implements Source, Serializable {
         for (int i=0; i<sources.size();i++) {
             result += sources.get(i).getValue() * weights.get(i);
         }
+        result = activationFunction.calculate(result);
         return result;
     }
 
