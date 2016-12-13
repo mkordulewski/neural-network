@@ -9,7 +9,7 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
  */
 public class UnipolarStepFunctionTest {
 
-    private UnipolarStepFunction func = new UnipolarStepFunction();
+    private ActivationFunction func = new UnipolarStepFunction();
 
     @Test
     public void test1() {

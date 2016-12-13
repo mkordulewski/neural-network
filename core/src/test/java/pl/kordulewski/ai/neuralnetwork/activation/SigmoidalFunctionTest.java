@@ -9,7 +9,7 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
  */
 public class SigmoidalFunctionTest {
 
-    private SigmoidalFunction func = new SigmoidalFunction();
+    private ActivationFunction func = new SigmoidalFunction();
 
     @Test
     public void test1() {
