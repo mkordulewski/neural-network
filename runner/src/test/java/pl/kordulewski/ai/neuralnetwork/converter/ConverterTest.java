@@ -77,4 +77,10 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(32);
     }
 
+    @Test
+    public void testConvertCharToDouble() {
+        double value = converter.convertCharToDouble('1');
+        assertThat(value).isEqualTo(1.0);
+    }
+
 }
