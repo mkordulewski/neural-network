@@ -1,7 +1,7 @@
-package pl.kordulewski.ai.generator;
+package pl.kordulewski.ai.neuralnetwork.generator;
 
 import org.junit.Test;
-import pl.kordulewski.ai.Network;
+import pl.kordulewski.ai.neuralnetwork.Network;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
 

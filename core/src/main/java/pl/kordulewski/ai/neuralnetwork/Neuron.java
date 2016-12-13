@@ -1,6 +1,6 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.neuralnetwork;
 
-import pl.kordulewski.ai.generator.WeightGenerator;
+import pl.kordulewski.ai.neuralnetwork.generator.WeightGenerator;
 
 import java.io.Serializable;
 import java.util.ArrayList;

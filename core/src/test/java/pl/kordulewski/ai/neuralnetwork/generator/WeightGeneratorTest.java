@@ -1,4 +1,4 @@
-package pl.kordulewski.ai.generator;
+package pl.kordulewski.ai.neuralnetwork.generator;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,8 +1,8 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.neuralnetwork;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Michał Kordulewski

@@ -1,6 +1,6 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.neuralnetwork;
 
-import pl.kordulewski.ai.generator.PositiveInputDataGenerator;
+import pl.kordulewski.ai.neuralnetwork.generator.PositiveInputDataGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

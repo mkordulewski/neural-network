@@ -1,4 +1,4 @@
-package pl.kordulewski.ai;
+package pl.kordulewski.ai.neuralnetwork;
 
 import java.io.Serializable;
 import java.util.ArrayList;
