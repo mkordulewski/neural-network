@@ -17,6 +17,9 @@ public class WeightGeneratorTest {
         generator = new WeightGenerator();
     }
 
+    /**
+     * @see WeightGenerator#nextRandomWeight()
+     */
     @Test
     public void testNextRandomWeight() {
         for (int i=0; i<1000000; i++) {
