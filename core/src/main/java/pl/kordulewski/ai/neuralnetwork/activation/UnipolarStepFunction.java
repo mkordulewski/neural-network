@@ -3,7 +3,7 @@ package pl.kordulewski.ai.neuralnetwork.activation;
 /**
  * @author Michał Kordulewski
  */
-public class BinaryStepFunction implements ActivationFunction {
+public class UnipolarStepFunction implements ActivationFunction {
 
     @Override
     public double calculate(double value) {

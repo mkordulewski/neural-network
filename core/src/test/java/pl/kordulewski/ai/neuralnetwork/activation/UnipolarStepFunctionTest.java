@@ -7,9 +7,9 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
 /**
  * @author Michał Kordulewski
  */
-public class BinaryStepFunctionTest {
+public class UnipolarStepFunctionTest {
 
-    private BinaryStepFunction func = new BinaryStepFunction();
+    private UnipolarStepFunction func = new UnipolarStepFunction();
 
     @Test
     public void test1() {
