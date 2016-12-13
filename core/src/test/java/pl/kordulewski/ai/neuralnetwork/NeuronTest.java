@@ -43,4 +43,12 @@ public class NeuronTest {
         assertThat(neuron.getSources().size()).isEqualTo(3);
     }
 
+    /**
+     * @see Neuron#getValue()
+     */
+    @Test
+    public void testGetValue() {
+        // TODO
+    }
+
 }
