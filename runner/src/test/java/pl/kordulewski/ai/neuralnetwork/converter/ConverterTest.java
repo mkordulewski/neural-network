@@ -16,6 +16,9 @@ public class ConverterTest {
     private List<Double> result;
     private String binary;
 
+    /**
+     * @see Converter#convertStringToBinary(String)
+     */
     @Test
     public void testConvertStringToBinaryNull() {
         binary = converter.convertStringToBinary(null);
@@ -24,6 +27,9 @@ public class ConverterTest {
         assertThat(binary.length()).isEqualTo(0);
     }
 
+    /**
+     * @see Converter#convertStringToBinary(String)
+     */
     @Test
     public void testConvertStringToBinary0Chars() {
         binary = converter.convertStringToBinary("");
@@ -32,6 +38,9 @@ public class ConverterTest {
         assertThat(binary.length()).isEqualTo(0);
     }
 
+    /**
+     * @see Converter#convertStringToBinary(String)
+     */
     @Test
     public void testConvertStringToBinary1Char() {
         binary = converter.convertStringToBinary("a");
@@ -40,6 +49,9 @@ public class ConverterTest {
         assertThat(binary.length()).isEqualTo(8);
     }
 
+    /**
+     * @see Converter#convert(String)
+     */
     @Test
     public void testNull() {
         result = converter.convert(null);
@@ -47,6 +59,9 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(0);
     }
 
+    /**
+     * @see Converter#convert(String)
+     */
     @Test
     public void test() {
         result = converter.convert("");
@@ -54,6 +69,9 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(0);
     }
 
+    /**
+     * @see Converter#convert(String)
+     */
     @Test
     public void test1Character() {
         result = converter.convert("a");
@@ -62,6 +80,9 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(8);
     }
 
+    /**
+     * @see Converter#convert(String)
+     */
     @Test
     public void test2Characters() {
         result = converter.convert("ab");
@@ -70,6 +91,9 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(16);
     }
 
+    /**
+     * @see Converter#convert(String)
+     */
     @Test
     public void test3Characters() {
         result = converter.convert("abc");
@@ -78,6 +102,9 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(24);
     }
 
+    /**
+     * @see Converter#convert(String)
+     */
     @Test
     public void test4Characters() {
         result = converter.convert("abcd");
@@ -86,18 +113,27 @@ public class ConverterTest {
         assertThat(result.size()).isEqualTo(32);
     }
 
+    /**
+     * @see Converter#convertCharToDouble(char)
+     */
     @Test
     public void testConvertCharToDouble1() {
         double value = converter.convertCharToDouble('1');
         assertThat(value).isEqualTo(1.0);
     }
 
+    /**
+     * @see Converter#convertCharToDouble(char)
+     */
     @Test
     public void testConvertCharToDouble0() {
         double value = converter.convertCharToDouble('0');
         assertThat(value).isEqualTo(-1.0);
     }
 
+    /**
+     * @see Converter#convertCharToDouble(char)
+     */
     @Test
     public void testConvertCharToDouble2() {
         for(int i=0;i<255;i++) {
