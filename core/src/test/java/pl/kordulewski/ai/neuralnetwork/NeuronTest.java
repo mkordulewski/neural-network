@@ -9,6 +9,9 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
  */
 public class NeuronTest {
 
+    /**
+     * @see Neuron#registerSource(Source)
+     */
     @Test
     public void testRegisterSource() {
         Neuron neuron = new Neuron();
@@ -18,12 +21,19 @@ public class NeuronTest {
         double value = neuron.getValue();
     }
 
+    /**
+     * @see Neuron#getSources()
+     */
     @Test
     public void testGetSources0() {
         Neuron neuron = new Neuron();
         assertThat(neuron.getSources().size()).isEqualTo(0);
     }
 
+    /**
+     * @see Neuron#registerSource(Source)
+     * @see Neuron#getSources()
+     */
     @Test
     public void testGetSources() {
         Neuron neuron = new Neuron();
