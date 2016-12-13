@@ -13,6 +13,9 @@ public class GeneratorTest {
 
     private Generator generator = new Generator();
 
+    /**
+     * @see Generator#generatePositiveInputData()
+     */
     @Test
     public void test000() {
         List<String> list = generator.generatePositiveInputData();
@@ -24,6 +27,9 @@ public class GeneratorTest {
         }
     }
 
+    /**
+     * @see Generator#generateListOfDoubles(int, double)
+     */
     @Test
     public void testGenerateListOfDoubles() {
         List<Double> list = generator.generateListOfDoubles(0, 0.0);
@@ -32,6 +38,9 @@ public class GeneratorTest {
         assertThat(list.size()).isEqualTo(0);
     }
 
+    /**
+     * @see Generator#generateListOfDoubles(int, double)
+     */
     @Test
     public void testGenerateListOfDoublesLoop() {
         for(int size: new int[]{1,2,3}) {
