@@ -1,5 +1,6 @@
 package pl.kordulewski.ai.neuralnetwork;
 
+import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
 import pl.kordulewski.ai.neuralnetwork.generator.PositiveInputDataGenerator;
 
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ public class Runner {
         for (String s : negativeLearningData) {
             System.out.println("  " + s);
         }
-        // TODO generate the network
+        // generate the network
+        Network network = new NetworkGenerator().generate(32, 8, 1);
         // TODO learn the network
         // TODO generate random testing data
         // TODO test the network
