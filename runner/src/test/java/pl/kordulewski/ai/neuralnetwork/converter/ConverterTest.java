@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.StrictAssertions.failBecauseExceptionWasNotThrown;
 
 /**
  * @author Michał Kordulewski
@@ -87,6 +88,21 @@ public class ConverterTest {
     public void testConvertCharToDouble0() {
         double value = converter.convertCharToDouble('0');
         assertThat(value).isEqualTo(-1.0);
+    }
+
+    @Test
+    public void testConvertCharToDouble2() {
+        for(int i=0;i<255;i++) {
+            char c = (char) i;
+            if (c!='0' && c!='1') {
+                try {
+                    converter.convertCharToDouble(c);
+                    failBecauseExceptionWasNotThrown(RuntimeException.class);
+                } catch (RuntimeException e) {
+                    // it's expected
+                }
+            }
+        }
     }
 
 }
