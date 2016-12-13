@@ -9,13 +9,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * @author Michał Kordulewski
  */
-public class PositiveInputDataGeneratorTest {
+public class GeneratorTest {
 
-    private PositiveInputDataGenerator generator = new PositiveInputDataGenerator();
+    private Generator generator = new Generator();
 
     @Test
     public void test000() {
-        List<String> list = generator.generate();
+        List<String> list = generator.generatePositiveInputData();
         assertThat(list).isNotNull();
         assertThat(list.size()).isGreaterThan(0);
         for(String s:list) {

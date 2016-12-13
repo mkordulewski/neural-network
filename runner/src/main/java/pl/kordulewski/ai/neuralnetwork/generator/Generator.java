@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public class PositiveInputDataGenerator {
+public class Generator {
 
-    public List<String> generate() {
+    public List<String> generatePositiveInputData() {
         List<String> result = new ArrayList<String>();
         for (String c1: new String[]{"m", "M"}) {
             for (String c2: new String[]{"i", "I"}) {

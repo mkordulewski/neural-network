@@ -1,7 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
-import pl.kordulewski.ai.neuralnetwork.generator.PositiveInputDataGenerator;
+import pl.kordulewski.ai.neuralnetwork.generator.Generator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class Runner {
     }
 
     public void run() {
-        List<String> positiveLearningData = new PositiveInputDataGenerator().generate();
+        List<String> positiveLearningData = new Generator().generatePositiveInputData();
         // TODO generate negative learning data
         List<String> negativeLearningData = new ArrayList<>();
         System.out.println("Positive learning data [" + positiveLearningData.size() + "]:");
