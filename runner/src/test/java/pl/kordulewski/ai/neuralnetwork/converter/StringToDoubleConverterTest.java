@@ -45,4 +45,36 @@ public class StringToDoubleConverterTest {
         assertThat(result.size()).isEqualTo(0);
     }
 
+    @Test
+    public void test1Character() {
+        result = converter.convert("a");
+        assertThat(result).isNotNull();
+        assertThat(result).isNotEmpty();
+        assertThat(result.size()).isEqualTo(8);
+    }
+
+    @Test
+    public void test2Characters() {
+        result = converter.convert("ab");
+        assertThat(result).isNotNull();
+        assertThat(result).isNotEmpty();
+        assertThat(result.size()).isEqualTo(16);
+    }
+
+    @Test
+    public void test3Characters() {
+        result = converter.convert("abc");
+        assertThat(result).isNotNull();
+        assertThat(result).isNotEmpty();
+        assertThat(result.size()).isEqualTo(24);
+    }
+
+    @Test
+    public void test4Characters() {
+        result = converter.convert("abcd");
+        assertThat(result).isNotNull();
+        assertThat(result).isNotEmpty();
+        assertThat(result.size()).isEqualTo(32);
+    }
+
 }
