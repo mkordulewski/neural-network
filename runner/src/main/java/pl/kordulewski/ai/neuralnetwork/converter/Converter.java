@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public class StringToDoubleConverter {
+public class Converter {
 
     public List<Double> convert(String word) {
         List<Double> result = new ArrayList<Double>();

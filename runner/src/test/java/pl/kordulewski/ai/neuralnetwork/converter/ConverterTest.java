@@ -9,9 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * @author Michał Kordulewski
  */
-public class StringToDoubleConverterTest {
+public class ConverterTest {
 
-    private StringToDoubleConverter converter = new StringToDoubleConverter();
+    private Converter converter = new Converter();
     private List<Double> result;
     private String binary;
 
