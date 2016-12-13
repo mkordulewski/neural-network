@@ -20,6 +20,15 @@ public class StringToDoubleConverterTest {
         binary = converter.convertStringToBinary("");
         assertThat(binary).isNotNull();
         assertThat(binary).isEmpty();
+        assertThat(binary.length()).isEqualTo(0);
+    }
+
+    @Test
+    public void testConvertStringToBinary1Char() {
+        binary = converter.convertStringToBinary("a");
+        assertThat(binary).isNotNull();
+        assertThat(binary).isNotEmpty();
+        assertThat(binary.length()).isEqualTo(8);
     }
 
     @Test

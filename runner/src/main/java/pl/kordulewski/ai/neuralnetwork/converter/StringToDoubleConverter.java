@@ -18,7 +18,7 @@ public class StringToDoubleConverter {
     public String convertStringToBinary(String string) {
         if (string == null || "".equals(string))
             return "";
-        return new BigInteger(string.getBytes()).toString(2);
+        return "0" + new BigInteger(string.getBytes()).toString(2);
     }
 
 }
