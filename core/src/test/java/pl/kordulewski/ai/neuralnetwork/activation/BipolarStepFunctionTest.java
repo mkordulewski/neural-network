@@ -23,4 +23,10 @@ public class BipolarStepFunctionTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void test3() {
+        double result = func.calculate(1);
+        assertThat(result).isEqualTo(1);
+    }
+
 }
