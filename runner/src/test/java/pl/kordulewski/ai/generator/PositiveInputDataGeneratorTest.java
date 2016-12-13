@@ -16,6 +16,11 @@ public class PositiveInputDataGeneratorTest {
     @Test
     public void test000() {
         List<String> list = generator.generate();
+        assertThat(list).isNotNull();
         assertThat(list.size()).isGreaterThan(0);
+        for(String s:list) {
+            assertThat(s).isNotNull();
+            assertThat(s).isNotEmpty();
+        }
     }
 }
