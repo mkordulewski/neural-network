@@ -78,9 +78,15 @@ public class ConverterTest {
     }
 
     @Test
-    public void testConvertCharToDouble() {
+    public void testConvertCharToDouble1() {
         double value = converter.convertCharToDouble('1');
         assertThat(value).isEqualTo(1.0);
+    }
+
+    @Test
+    public void testConvertCharToDouble0() {
+        double value = converter.convertCharToDouble('0');
+        assertThat(value).isEqualTo(-1.0);
     }
 
 }
