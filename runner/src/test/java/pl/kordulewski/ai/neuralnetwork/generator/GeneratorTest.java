@@ -32,4 +32,20 @@ public class GeneratorTest {
         assertThat(list.size()).isEqualTo(0);
     }
 
+    @Test
+    public void testGenerateListOfDoublesLoop() {
+        for(int size: new int[]{1,2,3}) {
+            for(double value: new double[]{-1.0, 0.0, 1.0}) {
+                List<Double> list = generator.generateListOfDoubles(size, value);
+                assertThat(list).isNotNull();
+                assertThat(list).isNotEmpty();
+                assertThat(list.size()).isEqualTo(size);
+                for(Double d:list) {
+                    assertThat(d).isEqualTo(value);
+                }
+            }
+        }
+
+    }
+
 }
