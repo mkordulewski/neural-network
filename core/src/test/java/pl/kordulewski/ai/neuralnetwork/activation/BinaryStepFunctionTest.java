@@ -37,4 +37,12 @@ public class BinaryStepFunctionTest {
         }
     }
 
+    @Test
+    public void test5() {
+        for(double i=0;i<=10;i+=0.01) {
+            double result = func.calculate(i);
+            assertThat(result).isEqualTo(1);
+        }
+    }
+
 }
