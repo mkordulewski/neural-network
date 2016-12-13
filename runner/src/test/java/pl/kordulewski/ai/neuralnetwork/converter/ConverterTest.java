@@ -17,7 +17,15 @@ public class ConverterTest {
     private String binary;
 
     @Test
-    public void testConvertStringToBinary() {
+    public void testConvertStringToBinaryNull() {
+        binary = converter.convertStringToBinary(null);
+        assertThat(binary).isNotNull();
+        assertThat(binary).isEmpty();
+        assertThat(binary.length()).isEqualTo(0);
+    }
+
+    @Test
+    public void testConvertStringToBinary0Chars() {
         binary = converter.convertStringToBinary("");
         assertThat(binary).isNotNull();
         assertThat(binary).isEmpty();
