@@ -29,4 +29,12 @@ public class BinaryStepFunctionTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void test4() {
+        for(double i=-10;i<0;i+=0.01) {
+            double result = func.calculate(i);
+            assertThat(result).isEqualTo(0);
+        }
+    }
+
 }
