@@ -12,6 +12,9 @@ public class NetworkGeneratorTest {
 
     private NetworkGenerator generator = new NetworkGenerator();
 
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
     @Test
     public void test000() {
         Network network = generator.generate(0,0,0);
@@ -20,6 +23,9 @@ public class NetworkGeneratorTest {
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(0);
     }
 
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
     @Test
     public void test111() {
         Network network = generator.generate(1,1,1);
@@ -28,6 +34,9 @@ public class NetworkGeneratorTest {
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);
     }
 
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
     @Test
     public void test333() {
         Network network = generator.generate(3,3,3);
@@ -36,6 +45,9 @@ public class NetworkGeneratorTest {
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(3);
     }
 
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
     @Test
     public void test931() {
         Network network = generator.generate(9,3,1);
