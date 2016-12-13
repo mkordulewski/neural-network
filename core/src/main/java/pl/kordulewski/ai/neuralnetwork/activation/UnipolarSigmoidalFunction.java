@@ -3,7 +3,7 @@ package pl.kordulewski.ai.neuralnetwork.activation;
 /**
  * @author Michał Kordulewski
  */
-public class SigmoidalFunction implements ActivationFunction {
+public class UnipolarSigmoidalFunction implements ActivationFunction {
 
     private static double ALPHA_INDICATOR = 1.0;
 

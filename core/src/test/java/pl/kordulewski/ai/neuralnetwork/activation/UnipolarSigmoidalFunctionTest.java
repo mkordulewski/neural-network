@@ -7,9 +7,9 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
 /**
  * @author Michał Kordulewski
  */
-public class SigmoidalFunctionTest {
+public class UnipolarSigmoidalFunctionTest {
 
-    private ActivationFunction func = new SigmoidalFunction();
+    private ActivationFunction func = new UnipolarSigmoidalFunction();
 
     @Test
     public void test1() {
