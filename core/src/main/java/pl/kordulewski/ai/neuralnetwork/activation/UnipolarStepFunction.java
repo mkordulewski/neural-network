@@ -13,4 +13,10 @@ public class UnipolarStepFunction implements ActivationFunction {
             return 0;
     }
 
+    @Override
+    public double derivative(double value) {
+        // TODO
+        return 0;
+    }
+
 }

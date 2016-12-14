@@ -13,4 +13,10 @@ public class BipolarStepFunction implements ActivationFunction {
             return -1;
     }
 
+    @Override
+    public double derivative(double value) {
+        // TODO
+        return 0;
+    }
+
 }

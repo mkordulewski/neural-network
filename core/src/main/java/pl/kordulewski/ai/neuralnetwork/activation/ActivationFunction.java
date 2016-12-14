@@ -7,4 +7,6 @@ public interface ActivationFunction {
 
     double calculate(double value);
 
+    double derivative(double value);
+
 }
