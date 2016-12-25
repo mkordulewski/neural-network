@@ -17,6 +17,7 @@ public class Neuron implements Source, Serializable {
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private WeightGenerator generator = new WeightGenerator();
+    private Double cachedValue;
     private String name = "";
     private boolean corrected = false;
     private double sigma = 0;
@@ -41,6 +42,7 @@ public class Neuron implements Source, Serializable {
             result += sources.get(i).getValue() * weights.get(i);
         }
         result = activationFunction.calculate(result);
+        cachedValue = result;
         return result;
     }
 
@@ -65,7 +67,6 @@ public class Neuron implements Source, Serializable {
                 }
             }
             // new weights
-            System.out.println(name + " korekta wag");
             // TODO
             corrected = true;
         }
