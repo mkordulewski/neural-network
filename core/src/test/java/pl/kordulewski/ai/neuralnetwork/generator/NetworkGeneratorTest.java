@@ -47,6 +47,9 @@ public class NetworkGeneratorTest {
         for (Neuron neuron: network.getNeuronsInOutputLayer()) {
             neuron.correctWeights();
         }
+        for (Neuron neuron: network.getNeuronsInOutputLayer()) {
+            neuron.clean();
+        }
         assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(3);
         assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(3);
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);

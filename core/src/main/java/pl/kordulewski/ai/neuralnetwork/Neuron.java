@@ -70,6 +70,17 @@ public class Neuron implements Source, Serializable {
             corrected = true;
         }
     }
+
+    public void clean() {
+        corrected = false;
+        sigma = 0;
+        for (int i=0; i<sources.size();i++) {
+            if (sources.get(i) instanceof Neuron) {
+                ((Neuron) sources.get(i)).clean();
+            }
+        }
+    }
+
     public List<Source> getSources() {
         return sources;
     }
