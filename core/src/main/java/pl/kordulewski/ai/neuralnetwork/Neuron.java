@@ -57,6 +57,19 @@ public class Neuron implements Source, Serializable {
         this.sigma += sigma;
     }
 
+    public void correctWeights() {
+        if (!corrected) {
+            for (int i=0; i<sources.size();i++) {
+                if (sources.get(i) instanceof Neuron) {
+                    ((Neuron) sources.get(i)).correctWeights();
+                }
+            }
+            // new weights
+            System.out.println(name + " korekta wag");
+            // TODO
+            corrected = true;
+        }
+    }
     public List<Source> getSources() {
         return sources;
     }
