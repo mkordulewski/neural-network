@@ -18,6 +18,8 @@ public class Neuron implements Source, Serializable {
     private List<Double> weights = new ArrayList<Double>();
     private WeightGenerator generator = new WeightGenerator();
     private String name = "";
+    private boolean corrected = false;
+    private double sigma = 0;
 
     public Neuron() {
     }
@@ -40,6 +42,19 @@ public class Neuron implements Source, Serializable {
         }
         result = activationFunction.calculate(result);
         return result;
+    }
+
+    public void expected(double expectedValue) {
+        sigma(expectedValue - getValue());
+    }
+
+    public void sigma(double sigma) {
+        for (int i=0; i<sources.size();i++) {
+            if (sources.get(i) instanceof Neuron) {
+                ((Neuron) sources.get(i)).sigma(sigma * weights.get(i));
+            }
+        }
+        this.sigma += sigma;
     }
 
     public List<Source> getSources() {
