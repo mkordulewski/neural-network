@@ -17,6 +17,16 @@ public class Neuron implements Source, Serializable {
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private WeightGenerator generator = new WeightGenerator();
+    private String name = "";
+
+    public Neuron() {
+    }
+
+    public Neuron(String name) {
+        if (name != null) {
+            this.name = name;
+        }
+    }
 
     public void registerSource(Source source) {
         sources.add(source);
