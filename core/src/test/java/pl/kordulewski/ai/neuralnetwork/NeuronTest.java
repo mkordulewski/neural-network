@@ -22,6 +22,7 @@ public class NeuronTest {
         neuron.registerSource(new StaticSource(0));
         neuron.registerSource(new StaticSource(1));
         double value = neuron.getValue();
+        neuron.expected(1.0);
     }
 
     /**
