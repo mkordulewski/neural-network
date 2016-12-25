@@ -15,7 +15,10 @@ public class NeuronTest {
     @Test
     public void testRegisterSource() {
         Neuron neuron = new Neuron();
-        neuron.registerSource(new StaticSource(-1));
+        Neuron neuron2 = new Neuron();
+        neuron2.registerSource(new StaticSource(-1));
+        neuron2.registerSource(new StaticSource(0));
+        neuron.registerSource(neuron2);
         neuron.registerSource(new StaticSource(0));
         neuron.registerSource(new StaticSource(1));
         double value = neuron.getValue();
