@@ -16,13 +16,13 @@ public class NetworkGenerator {
         List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
         List<Neuron> neuronsInOutputLayer = new ArrayList<Neuron>();
         for(int i=0; i<numberOfNeuronsInInputLayer; i++) {
-            neuronsInInputLayer.add(new Neuron());
+            neuronsInInputLayer.add(new Neuron("N.1."+(i+1)));
         }
         for(int i=0; i<numberOfNeuronsInHiddenLayer; i++) {
-            neuronsInHiddenLayer.add(new Neuron());
+            neuronsInHiddenLayer.add(new Neuron("N.2."+(i+1)));
         }
         for(int i=0; i<numberOfNeuronsInOutputLayer; i++) {
-            neuronsInOutputLayer.add(new Neuron());
+            neuronsInOutputLayer.add(new Neuron("N.3."+(i+1)));
         }
         // join neuronsInInputLayer and neuronsInHiddenLayer each other
         for(Neuron input:neuronsInInputLayer) {
