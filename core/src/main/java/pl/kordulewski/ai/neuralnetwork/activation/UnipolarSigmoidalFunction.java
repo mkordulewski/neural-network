@@ -14,8 +14,7 @@ public class UnipolarSigmoidalFunction implements ActivationFunction {
 
     @Override
     public double derivative(double value) {
-        // TODO
-        return 0;
+        return Math.exp(value)/Math.sqrt(Math.exp(value)+1.0);
     }
 
 }
