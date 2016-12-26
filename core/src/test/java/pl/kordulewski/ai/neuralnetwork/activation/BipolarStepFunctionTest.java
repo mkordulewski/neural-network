@@ -45,4 +45,11 @@ public class BipolarStepFunctionTest {
         }
     }
 
+    @Test
+    public void testDerivative() {
+        assertThat(func.derivative(-1)).isGreaterThanOrEqualTo(0);
+        assertThat(func.derivative(0)).isGreaterThanOrEqualTo(0);
+        assertThat(func.derivative(1)).isGreaterThanOrEqualTo(0);
+    }
+
 }
