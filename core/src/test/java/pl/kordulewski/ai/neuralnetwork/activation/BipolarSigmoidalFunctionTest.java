@@ -33,4 +33,9 @@ public class BipolarSigmoidalFunctionTest {
         }
     }
 
+    @Test
+    public void testDerivative() {
+        assertThat(func.derivative(0)).isGreaterThanOrEqualTo(0.5);
+    }
+
 }
