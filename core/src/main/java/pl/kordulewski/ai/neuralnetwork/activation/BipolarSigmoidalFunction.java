@@ -14,8 +14,7 @@ public class BipolarSigmoidalFunction implements ActivationFunction {
 
     @Override
     public double derivative(double value) {
-        // TODO
-        return 0;
+        return (2 * ALPHA_INDICATOR * Math.exp(ALPHA_INDICATOR * value)) / Math.pow(Math.exp(ALPHA_INDICATOR * value) + 1.0, 2);
     }
 
 }
