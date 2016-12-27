@@ -35,4 +35,26 @@ public class Network implements Serializable {
         return neuronsInOutputLayer;
     }
 
+    public void learn(List<Double> expectedOutputValues) {
+        if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
+            throw new RuntimeException("List sizes are not equal");
+        }
+        // calculating output values
+        for (Neuron neuron: getNeuronsInOutputLayer()) {
+            neuron.getValue();
+        }
+        // expected values
+        for (int i=0; i<getNeuronsInOutputLayer().size(); i++) {
+            getNeuronsInOutputLayer().get(i).expected(expectedOutputValues.get(i));
+        }
+        // correcting weights
+        for (Neuron neuron: getNeuronsInOutputLayer()) {
+            neuron.correctWeights();
+        }
+        // cleaning temporary variables
+        for (Neuron neuron: getNeuronsInOutputLayer()) {
+            neuron.clean();
+        }
+    }
+
 }
