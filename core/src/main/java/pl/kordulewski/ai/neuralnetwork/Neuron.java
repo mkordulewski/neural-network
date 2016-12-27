@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class Neuron implements Source, Serializable {
 
+    private static final double LEARNING_RATE = 1;
+
     private ActivationFunction activationFunction = new UnipolarStepFunction();
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
@@ -67,7 +69,10 @@ public class Neuron implements Source, Serializable {
                 }
             }
             // new weights
-            // TODO
+            for (int i=0; i<weights.size();i++) {
+                double x = sources.get(i).getValue();
+                weights.set(i, weights.get(i)+LEARNING_RATE*sigma*activationFunction.derivative( x ) * x);
+            }
             corrected = true;
         }
     }
