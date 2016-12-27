@@ -22,6 +22,8 @@ public class NetworkGeneratorTest {
     @Test
     public void test000() {
         Network network = generator.generate(0,0,0);
+        List<Double> expectedOutputValues = Arrays.asList();
+        network.learn(expectedOutputValues);
         assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(0);
         assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(0);
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(0);
