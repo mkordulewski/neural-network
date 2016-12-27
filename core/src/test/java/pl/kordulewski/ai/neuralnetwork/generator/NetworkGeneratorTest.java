@@ -41,6 +41,7 @@ public class NetworkGeneratorTest {
     @Test
     public void test331() {
         Network network = generator.generate(3,3,1);
+        // TODO to refactor
         for (Neuron neuron: network.getNeuronsInOutputLayer()) {
             neuron.expected(1.0);
         }
