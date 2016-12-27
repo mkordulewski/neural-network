@@ -19,7 +19,7 @@ public class Neuron implements Source, Serializable {
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private WeightGenerator generator = new WeightGenerator();
-    private Double cachedValue;
+    private Double cachedOutputValue;
     private String name = "";
     private boolean corrected = false;
     private double sigma = 0;
@@ -39,16 +39,15 @@ public class Neuron implements Source, Serializable {
     }
 
     public double getValue() {
-        if (cachedValue != null) {
-            return cachedValue;
+        if (cachedOutputValue != null) {
+            return cachedOutputValue;
         }
-        double result = 0;
+        double input = 0;
         for (int i=0; i<sources.size();i++) {
-            result += sources.get(i).getValue() * weights.get(i);
+            input += sources.get(i).getValue() * weights.get(i);
         }
-        result = activationFunction.calculate(result);
-        cachedValue = result;
-        return result;
+        cachedOutputValue = activationFunction.calculate(input);
+        return cachedOutputValue;
     }
 
     public void expected(double expectedValue) {
@@ -83,7 +82,7 @@ public class Neuron implements Source, Serializable {
     public void clean() {
         corrected = false;
         sigma = 0;
-        cachedValue = null;
+        cachedOutputValue = null;
         for (int i=0; i<sources.size();i++) {
             if (sources.get(i) instanceof Neuron) {
                 ((Neuron) sources.get(i)).clean();
