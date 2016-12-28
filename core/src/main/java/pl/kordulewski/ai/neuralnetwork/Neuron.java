@@ -80,12 +80,14 @@ public class Neuron implements Source, Serializable {
     }
 
     public void clean() {
-        corrected = false;
-        sigma = 0;
-        cachedOutputValue = null;
-        for (int i=0; i<sources.size();i++) {
-            if (sources.get(i) instanceof Neuron) {
-                ((Neuron) sources.get(i)).clean();
+        if (corrected==true || sigma != 0.0 || cachedOutputValue!=null) {
+            corrected = false;
+            sigma = 0.0;
+            cachedOutputValue = null;
+            for (int i = 0; i < sources.size(); i++) {
+                if (sources.get(i) instanceof Neuron) {
+                    ((Neuron) sources.get(i)).clean();
+                }
             }
         }
     }
