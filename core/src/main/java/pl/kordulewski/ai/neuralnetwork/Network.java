@@ -41,7 +41,11 @@ public class Network implements Serializable {
         // validate
         validateExpectedOutputValues(expectedOutputValues);
         // learn
-        for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
+        learnMultipleEpochs(expectedOutputValues, NUMBER_OF_EPOCHS);
+    }
+
+    protected void learnMultipleEpochs(List<Double> expectedOutputValues, int numberOfEpochs) {
+        for (int epoch = 0; epoch<numberOfEpochs; epoch++) {
             // calculating output values
             for (Neuron neuron : getNeuronsInOutputLayer()) {
                 neuron.getValue();
