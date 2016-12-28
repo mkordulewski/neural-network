@@ -104,4 +104,14 @@ public class NetworkGeneratorTest {
         failBecauseExceptionWasNotThrown(RuntimeException.class);
     }
 
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
+    @Test(expected = RuntimeException.class)
+    public void testExpectedValueIsNull() {
+        Network network = generator.generate(9,3,2);
+        List<Double> expectedOutputValues = Arrays.asList(1.0, null);
+        network.learn(expectedOutputValues);
+    }
+
 }
