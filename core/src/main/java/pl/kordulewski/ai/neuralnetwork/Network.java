@@ -39,9 +39,7 @@ public class Network implements Serializable {
 
     public void learn(List<Double> expectedOutputValues) {
         // validate
-        if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
-            throw new RuntimeException("List sizes are not equal");
-        }
+        validateExpectedOutputValues(expectedOutputValues);
         // learn
         for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
             // calculating output values
@@ -60,6 +58,12 @@ public class Network implements Serializable {
             for (Neuron neuron : getNeuronsInOutputLayer()) {
                 neuron.clean();
             }
+        }
+    }
+
+    protected void validateExpectedOutputValues(List<Double> expectedOutputValues) {
+        if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
+            throw new RuntimeException("List sizes are not equal");
         }
     }
 
