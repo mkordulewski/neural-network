@@ -49,11 +49,11 @@ public class Neuron implements Source, Serializable {
         return cachedOutputValue;
     }
 
-    public void expected(double expectedValue) {
+    protected void expected(double expectedValue) {
         sigma(expectedValue - getValue());
     }
 
-    public void sigma(double sigma) {
+    protected void sigma(double sigma) {
         for (int i=0; i<sources.size();i++) {
             if (sources.get(i) instanceof Neuron) {
                 ((Neuron) sources.get(i)).sigma(sigma * weights.get(i));
@@ -62,7 +62,7 @@ public class Neuron implements Source, Serializable {
         this.sigma += sigma;
     }
 
-    public void correctWeights() {
+    protected void correctWeights() {
         if (!corrected) {
             for (int i=0; i<sources.size();i++) {
                 if (sources.get(i) instanceof Neuron) {
@@ -78,7 +78,7 @@ public class Neuron implements Source, Serializable {
         }
     }
 
-    public void clean() {
+    protected void clean() {
         if (corrected==true || sigma != 0.0 || cachedOutputValue!=null) {
             corrected = false;
             sigma = 0.0;
@@ -91,7 +91,7 @@ public class Neuron implements Source, Serializable {
         }
     }
 
-    public List<Source> getSources() {
+    protected List<Source> getSources() {
         return sources;
     }
 
