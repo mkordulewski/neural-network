@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public class TestingData extends AbstractInputData {
+public class TestingData extends AbstractData {
 
     private List<Double> inputData;
 

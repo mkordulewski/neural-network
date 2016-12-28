@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public abstract class AbstractInputData implements InputData {
+public abstract class AbstractData implements Data {
 
     protected void validateInputData(List<Double> data) {
         if (data == null) {

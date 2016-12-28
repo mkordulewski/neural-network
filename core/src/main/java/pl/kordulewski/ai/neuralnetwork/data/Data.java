@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public interface InputData {
+public interface Data {
 
     public abstract List<Double> getInputValues();
 
