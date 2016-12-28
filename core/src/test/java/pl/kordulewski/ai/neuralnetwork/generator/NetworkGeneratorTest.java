@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.StrictAssertions.failBecauseExceptionWasNotThrown;
 
 /**
  * @author Michał Kordulewski
@@ -79,6 +80,28 @@ public class NetworkGeneratorTest {
         assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(9);
         assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(3);
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);
+    }
+
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
+    @Test(expected = RuntimeException.class)
+    public void testNotEqualListSizesA() {
+        Network network = generator.generate(9,3,1);
+        List<Double> expectedOutputValues = Arrays.asList();
+        network.learn(expectedOutputValues);
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
+    }
+
+    /**
+     * @see NetworkGenerator#generate(int, int, int)
+     */
+    @Test(expected = RuntimeException.class)
+    public void testNotEqualListSizesB() {
+        Network network = generator.generate(9,3,1);
+        List<Double> expectedOutputValues = Arrays.asList(1.0, 1.0);
+        network.learn(expectedOutputValues);
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
     }
 
 }
