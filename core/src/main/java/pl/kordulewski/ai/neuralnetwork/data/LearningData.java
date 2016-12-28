@@ -23,4 +23,8 @@ public class LearningData extends AbstractData {
         return inputData;
     }
 
+    public List<Double> getExpectedOutputData() {
+        return expectedOutputData;
+    }
+
 }
