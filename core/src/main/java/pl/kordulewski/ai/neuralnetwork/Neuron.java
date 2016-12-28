@@ -21,7 +21,7 @@ public class Neuron implements Source, Serializable {
     private Double cachedOutputValue;
     private String name = "";
     private boolean corrected = false;
-    private double sigma = 0;
+    private double sigma = 0.0;
 
     public Neuron() {
     }
