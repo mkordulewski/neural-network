@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.StrictAssertions.failBecauseExceptionWasNotThrown;
 
 /**
  * @see LearningData
@@ -38,6 +39,42 @@ public class LearningDataTest {
         learningData = new LearningData(Arrays.asList(1.0, 0.0), Arrays.asList(1.0, 0.0));
         assertThat(learningData.getInputValues().size()).isEqualTo(2);
         assertThat(learningData.getExpectedOutputData().size()).isEqualTo(2);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testNull01() {
+        learningData = new LearningData(null, Arrays.asList(1.0));
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testNull02() {
+        learningData = new LearningData(Arrays.asList(1.0), null);
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testNull11() {
+        learningData = new LearningData(Arrays.asList(null), Arrays.asList(1.0));
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testNull12() {
+        learningData = new LearningData(Arrays.asList(1.0), Arrays.asList(null));
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testNull31() {
+        learningData = new LearningData(Arrays.asList(1.0, null), Arrays.asList(1.0, 0.0));
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testNull32() {
+        learningData = new LearningData(Arrays.asList(1.0, 0.0), Arrays.asList(1.0, null));
+        failBecauseExceptionWasNotThrown(RuntimeException.class);
     }
 
 }
