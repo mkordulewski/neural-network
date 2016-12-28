@@ -1,7 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunction;
-import pl.kordulewski.ai.neuralnetwork.activation.UnipolarStepFunction;
+import pl.kordulewski.ai.neuralnetwork.activation.UnipolarSigmoidalFunction;
 import pl.kordulewski.ai.neuralnetwork.generator.WeightGenerator;
 
 import java.io.Serializable;
@@ -15,7 +15,7 @@ public class Neuron implements Source, Serializable {
 
     private static final double LEARNING_RATE = 1;
 
-    private ActivationFunction activationFunction = new UnipolarStepFunction();
+    private ActivationFunction activationFunction = new UnipolarSigmoidalFunction();
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private Double cachedOutputValue;
