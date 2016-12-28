@@ -13,6 +13,7 @@ public class LearningData extends AbstractData {
 
     public LearningData(List<Double> inputData, List<Double> expectedOutputData) {
         validateInputData(inputData);
+        validateInputData(expectedOutputData);
         this.inputData = inputData;
         this.expectedOutputData = expectedOutputData;
     }
