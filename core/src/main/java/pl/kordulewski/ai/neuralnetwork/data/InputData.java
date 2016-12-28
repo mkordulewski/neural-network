@@ -7,6 +7,6 @@ import java.util.List;
  */
 public interface InputData {
 
-    public abstract List<Double> getValues();
+    public abstract List<Double> getInputValues();
 
 }

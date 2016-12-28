@@ -15,7 +15,7 @@ public class TestingData extends AbstractInputData {
     }
 
     @Override
-    public List<Double> getValues() {
+    public List<Double> getInputValues() {
         return data;
     }
 
