@@ -33,4 +33,11 @@ public class LearningDataTest {
         assertThat(learningData.getExpectedOutputData().size()).isEqualTo(1);
     }
 
+    @Test
+    public void test2() {
+        learningData = new LearningData(Arrays.asList(1.0, 0.0), Arrays.asList(1.0, 0.0));
+        assertThat(learningData.getInputValues().size()).isEqualTo(2);
+        assertThat(learningData.getExpectedOutputData().size()).isEqualTo(2);
+    }
+
 }
