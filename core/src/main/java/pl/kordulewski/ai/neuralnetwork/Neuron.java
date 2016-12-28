@@ -18,7 +18,6 @@ public class Neuron implements Source, Serializable {
     private ActivationFunction activationFunction = new UnipolarStepFunction();
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
-    private WeightGenerator generator = new WeightGenerator();
     private Double cachedOutputValue;
     private String name = "";
     private boolean corrected = false;
@@ -35,7 +34,7 @@ public class Neuron implements Source, Serializable {
 
     public void registerSource(Source source) {
         sources.add(source);
-        weights.add(generator.nextRandomWeight());
+        weights.add(WeightGenerator.getInstance().nextRandomWeight());
     }
 
     public double getValue() {
