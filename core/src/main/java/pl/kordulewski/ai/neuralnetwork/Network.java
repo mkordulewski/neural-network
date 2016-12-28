@@ -38,6 +38,7 @@ public class Network implements Serializable {
     }
 
     public void addInputData(List<Double> inputValues) {
+        validateInputValues(inputValues);
         for(Neuron input:neuronsInInputLayer) {
             for(Double inputValue:inputValues) {
                 input.registerSource(new StaticSource(inputValue));
@@ -69,6 +70,14 @@ public class Network implements Serializable {
             // cleaning temporary variables
             for (Neuron neuron : getNeuronsInOutputLayer()) {
                 neuron.clean();
+            }
+        }
+    }
+
+    protected void validateInputValues(List<Double> expectedOutputValues) {
+        for (Double d : expectedOutputValues) {
+            if (d == null) {
+                throw new RuntimeException("Input value cannot be null");
             }
         }
     }
