@@ -65,6 +65,11 @@ public class Network implements Serializable {
         if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
             throw new RuntimeException("List sizes are not equal");
         }
+        for (Double d : expectedOutputValues) {
+            if (d == null) {
+                throw new RuntimeException("Expected output value cannot be null");
+            }
+        }
     }
 
 }
