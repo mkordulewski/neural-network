@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class Network implements Serializable {
 
+    private static final int NUMBER_OF_EPOCHS = 1000;
+
     List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
     List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
     List<Neuron> neuronsInOutputLayer = new ArrayList<Neuron>();
@@ -36,24 +38,28 @@ public class Network implements Serializable {
     }
 
     public void learn(List<Double> expectedOutputValues) {
+        // validate
         if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
             throw new RuntimeException("List sizes are not equal");
         }
-        // calculating output values
-        for (Neuron neuron: getNeuronsInOutputLayer()) {
-            neuron.getValue();
-        }
-        // expected values
-        for (int i=0; i<getNeuronsInOutputLayer().size(); i++) {
-            getNeuronsInOutputLayer().get(i).expected(expectedOutputValues.get(i));
-        }
-        // correcting weights
-        for (Neuron neuron: getNeuronsInOutputLayer()) {
-            neuron.correctWeights();
-        }
-        // cleaning temporary variables
-        for (Neuron neuron: getNeuronsInOutputLayer()) {
-            neuron.clean();
+        // learn
+        for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
+            // calculating output values
+            for (Neuron neuron : getNeuronsInOutputLayer()) {
+                neuron.getValue();
+            }
+            // expected values
+            for (int i = 0; i < getNeuronsInOutputLayer().size(); i++) {
+                getNeuronsInOutputLayer().get(i).expected(expectedOutputValues.get(i));
+            }
+            // correcting weights
+            for (Neuron neuron : getNeuronsInOutputLayer()) {
+                neuron.correctWeights();
+            }
+            // cleaning temporary variables
+            for (Neuron neuron : getNeuronsInOutputLayer()) {
+                neuron.clean();
+            }
         }
     }
 
