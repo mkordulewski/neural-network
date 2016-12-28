@@ -7,16 +7,16 @@ import java.util.List;
  */
 public class LearningData extends AbstractInputData {
 
-    private List<Double> data;
+    private List<Double> inputData;
 
-    public LearningData(List<Double> data) {
-        validateInputData(data);
-        this.data = data;
+    public LearningData(List<Double> inputData) {
+        validateInputData(inputData);
+        this.inputData = inputData;
     }
 
     @Override
     public List<Double> getInputValues() {
-        return data;
+        return inputData;
     }
 
 }
