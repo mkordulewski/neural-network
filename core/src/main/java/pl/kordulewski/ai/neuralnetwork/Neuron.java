@@ -54,12 +54,14 @@ public class Neuron implements Source, Serializable {
     }
 
     protected void sigma(double sigma) {
+        // add to own sigma
+        this.sigma += sigma;
+        // pass weighted sigma to neurons are your sources
         for (int i=0; i<sources.size();i++) {
             if (sources.get(i) instanceof Neuron) {
                 ((Neuron) sources.get(i)).sigma(sigma * weights.get(i));
             }
         }
-        this.sigma += sigma;
     }
 
     protected void correctWeights() {
