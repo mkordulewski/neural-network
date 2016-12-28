@@ -3,11 +3,16 @@ package pl.kordulewski.ai.neuralnetwork.data;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
 import static org.assertj.core.api.StrictAssertions.failBecauseExceptionWasNotThrown;
 
 /**
+ * @see TestingData
+ * @see TestingData#getInputValues()
+ * @see TestingData#TestingData(List)
+ *
  * @author Michał Kordulewski
  */
 public class TestingDataTest {
