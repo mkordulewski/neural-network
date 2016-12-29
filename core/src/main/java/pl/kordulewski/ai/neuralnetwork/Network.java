@@ -48,7 +48,7 @@ public class Network implements Serializable {
         }
     }
 
-    // TODO to test
+    // TODO to test and refactor
     public void learn(List<LearningData> learningDataList) {
         // validate
         validateLearningData(learningDataList);
@@ -77,6 +77,7 @@ public class Network implements Serializable {
         }
     }
 
+    // TODO to remove
     public void learnOld(List<Double> expectedOutputValues) {
         // validate
         validateExpectedOutputValues(expectedOutputValues);
@@ -84,6 +85,7 @@ public class Network implements Serializable {
         learnOldMultipleEpochs(expectedOutputValues, NUMBER_OF_EPOCHS);
     }
 
+    // TODO to remove
     protected void learnOldMultipleEpochs(List<Double> expectedOutputValues, int numberOfEpochs) {
         for (int epoch = 0; epoch<numberOfEpochs; epoch++) {
             // calculating output values
@@ -144,6 +146,7 @@ public class Network implements Serializable {
         }
     }
 
+    // TODO to remove
     protected void validateExpectedOutputValues(List<Double> expectedOutputValues) {
         if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
             throw new RuntimeException("List sizes are not equal");
