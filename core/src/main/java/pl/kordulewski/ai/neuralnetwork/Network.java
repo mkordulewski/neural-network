@@ -75,6 +75,9 @@ public class Network implements Serializable {
     }
 
     protected void validateInputValues(List<Double> expectedOutputValues) {
+        if (expectedOutputValues == null) {
+            throw new RuntimeException("Input collection cannot be null");
+        }
         for (Double d : expectedOutputValues) {
             if (d == null) {
                 throw new RuntimeException("Input value cannot be null");
