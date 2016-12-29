@@ -2,6 +2,7 @@ package pl.kordulewski.ai.neuralnetwork.generator;
 
 import org.junit.Test;
 import pl.kordulewski.ai.neuralnetwork.Network;
+import pl.kordulewski.ai.neuralnetwork.data.LearningData;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,8 +38,10 @@ public class NetworkGeneratorTest {
     @Test
     public void test111() {
         Network network = generator.generate(1,1,1);
-        List<Double> expectedOutputValues = Arrays.asList(1.0);
-        network.learnOld(expectedOutputValues);
+        List<Double> inputValues = Arrays.asList(-1.0);
+        List<Double> expectedOutputData = Arrays.asList(-1.0);
+        LearningData learningData = new LearningData(inputValues, expectedOutputData);
+        network.learn(Arrays.asList(learningData));
         assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(1);
         assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(1);
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);
