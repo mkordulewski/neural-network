@@ -11,6 +11,8 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
 import static org.assertj.core.api.StrictAssertions.failBecauseExceptionWasNotThrown;
 
 /**
+ * @see NetworkGenerator
+ *
  * @author Michał Kordulewski
  */
 public class NetworkGeneratorTest {

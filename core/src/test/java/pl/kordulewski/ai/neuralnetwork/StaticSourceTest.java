@@ -5,6 +5,8 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
+ * @see StaticSource
+ *
  * @author Michał Kordulewski
  */
 public class StaticSourceTest {

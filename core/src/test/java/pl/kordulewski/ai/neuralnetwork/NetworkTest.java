@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * @see Network
+ *
  * @author Michał Kordulewski
  */
 public class NetworkTest {

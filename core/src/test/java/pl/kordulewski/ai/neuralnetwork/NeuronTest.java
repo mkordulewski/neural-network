@@ -5,6 +5,8 @@ import org.junit.Test;
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
 /**
+ * @see Neuron
+ *
  * @author Michał Kordulewski
  */
 public class NeuronTest {

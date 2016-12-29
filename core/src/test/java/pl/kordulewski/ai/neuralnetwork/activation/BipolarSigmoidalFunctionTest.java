@@ -5,6 +5,8 @@ import org.junit.Test;
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
 /**
+ * @see BipolarSigmoidalFunction
+ *
  * @author Michał Kordulewski
  */
 public class BipolarSigmoidalFunctionTest {

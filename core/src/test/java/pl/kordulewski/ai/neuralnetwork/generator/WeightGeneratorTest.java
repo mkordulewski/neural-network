@@ -6,6 +6,8 @@ import org.junit.Test;
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
 /**
+ * @see WeightGenerator
+ *
  * @author Michał Kordulewski
  */
 public class WeightGeneratorTest {
