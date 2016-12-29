@@ -3,12 +3,54 @@ package pl.kordulewski.ai.neuralnetwork;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author Michał Kordulewski
  */
 public class NetworkTest {
+
+    /**
+     * @see Network#Network(List, List, List)
+     * @see Network#addInputData(List)
+     */
+    @Test
+    public void testAddInputData() {
+        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron());
+        Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
+        List<Double> inputData = Arrays.asList(0.0);
+        network.addInputData(inputData);
+    }
+
+    /**
+     * @see Network#Network(List, List, List)
+     * @see Network#addInputData(List)
+     */
+    @Test(expected = RuntimeException.class)
+    public void validateInputValues1() {
+        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron());
+        Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
+        network.addInputData(null);
+    }
+
+    /**
+     * @see Network#Network(List, List, List)
+     * @see Network#addInputData(List)
+     */
+    @Test(expected = RuntimeException.class)
+    public void validateInputValues2() {
+        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron(), new Neuron());
+        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron(), new Neuron());
+        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron());
+        Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
+        List<Double> inputData = Arrays.asList(1.0, null);
+        network.addInputData(inputData);
+    }
 
     /**
      * @see Network#Network(List, List, List)
