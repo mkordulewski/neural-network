@@ -1,5 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
+import pl.kordulewski.ai.neuralnetwork.data.LearningData;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,35 @@ public class Network implements Serializable {
         }
     }
 
+    // TODO to test
+    public void learnNew(List<LearningData> learningDataList) {
+        // validate
+        validateLearningData(learningDataList);
+        // learn
+        for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
+            for (LearningData learningData : learningDataList) {
+                //
+                addInputData(learningData.getInputValues());
+                // calculating output values
+                for (Neuron neuron : getNeuronsInOutputLayer()) {
+                    neuron.getValue();
+                }
+                // expected values
+                for (int i = 0; i < getNeuronsInOutputLayer().size(); i++) {
+                    getNeuronsInOutputLayer().get(i).expected(learningData.getExpectedOutputData().get(i));
+                }
+                // correcting weights
+                for (Neuron neuron : getNeuronsInOutputLayer()) {
+                    neuron.correctWeights();
+                }
+                // cleaning temporary variables
+                for (Neuron neuron : getNeuronsInOutputLayer()) {
+                    neuron.clean();
+                }
+            }
+        }
+    }
+
     public void learn(List<Double> expectedOutputValues) {
         // validate
         validateExpectedOutputValues(expectedOutputValues);
@@ -70,6 +101,34 @@ public class Network implements Serializable {
             // cleaning temporary variables
             for (Neuron neuron : getNeuronsInOutputLayer()) {
                 neuron.clean();
+            }
+        }
+    }
+
+    // TODO to test
+    protected void validateLearningData(List<LearningData> LearningDataList) {
+        if (LearningDataList == null) {
+            throw new RuntimeException("Learning data cannot be null");
+        }
+        for (LearningData learningData : LearningDataList) {
+            if (learningData == null) {
+                throw new RuntimeException("LearningData value cannot be null");
+            }
+            if (learningData.getInputValues() == null) {
+                throw new RuntimeException("InputData in LearningData cannot be null");
+            }
+            if (learningData.getExpectedOutputData() == null) {
+                throw new RuntimeException("ExpectedOutputData in LearningData cannot be null");
+            }
+            for (Double d: learningData.getInputValues()) {
+                if (d == null) {
+                    throw new RuntimeException("Value in InputData that is in LearningData cannot be null");
+                }
+            }
+            for (Double d: learningData.getExpectedOutputData()) {
+                if (d == null) {
+                    throw new RuntimeException("Value in ExpectedOutputData that is in LearningData cannot be null");
+                }
             }
         }
     }
