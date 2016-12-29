@@ -49,7 +49,7 @@ public class Network implements Serializable {
     }
 
     // TODO to test
-    public void learnNew(List<LearningData> learningDataList) {
+    public void learn(List<LearningData> learningDataList) {
         // validate
         validateLearningData(learningDataList);
         // learn
@@ -77,14 +77,14 @@ public class Network implements Serializable {
         }
     }
 
-    public void learn(List<Double> expectedOutputValues) {
+    public void learnOld(List<Double> expectedOutputValues) {
         // validate
         validateExpectedOutputValues(expectedOutputValues);
         // learn
-        learnMultipleEpochs(expectedOutputValues, NUMBER_OF_EPOCHS);
+        learnOldMultipleEpochs(expectedOutputValues, NUMBER_OF_EPOCHS);
     }
 
-    protected void learnMultipleEpochs(List<Double> expectedOutputValues, int numberOfEpochs) {
+    protected void learnOldMultipleEpochs(List<Double> expectedOutputValues, int numberOfEpochs) {
         for (int epoch = 0; epoch<numberOfEpochs; epoch++) {
             // calculating output values
             for (Neuron neuron : getNeuronsInOutputLayer()) {
