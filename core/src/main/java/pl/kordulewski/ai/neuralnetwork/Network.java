@@ -39,7 +39,7 @@ public class Network implements Serializable {
         return neuronsInOutputLayer;
     }
 
-    protected void addInputData(List<Double> inputValues) {
+    public void addInputData(List<Double> inputValues) {
         validateInputValues(inputValues);
         for(Neuron inputNeuron:neuronsInInputLayer) {
             for(Double inputValue:inputValues) {
