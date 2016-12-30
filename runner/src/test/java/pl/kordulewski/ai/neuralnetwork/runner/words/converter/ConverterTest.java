@@ -128,7 +128,7 @@ public class ConverterTest {
     @Test
     public void testConvertCharToDouble0() {
         double value = converter.convertCharToDouble('0');
-        assertThat(value).isEqualTo(-1.0);
+        assertThat(value).isEqualTo(0.0);
     }
 
     /**

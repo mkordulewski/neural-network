@@ -22,15 +22,21 @@ public class Converter {
         return result;
     }
 
+    /**
+     * Returns string of zeros and ones representing bits.
+     */
     public String convertStringToBinary(String string) {
         if (string == null || "".equals(string))
             return "";
         return "0" + new BigInteger(string.getBytes()).toString(2);
     }
 
+    /**
+     * Method accepts param 'c' with value '0' and '1' only. Char value '0' is converted into double value 0.0, char value '1' is converted into double value 1.0.
+     */
     public double convertCharToDouble(char c) {
         if (c == '0') {
-            return -1.0;
+            return 0.0;
         } else if (c == '1') {
             return 1.0;
         }
