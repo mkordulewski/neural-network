@@ -32,9 +32,15 @@ public class Neuron implements Source, Serializable {
         }
     }
 
+    public void cleanSources() {
+        sources = new ArrayList<Source>();
+    }
+
     public void registerSource(Source source) {
+        if (weights.size() == sources.size()) {
+            weights.add(WeightGenerator.getInstance().nextRandomWeight());
+        }
         sources.add(source);
-        weights.add(WeightGenerator.getInstance().nextRandomWeight());
     }
 
     public double getValue() {
