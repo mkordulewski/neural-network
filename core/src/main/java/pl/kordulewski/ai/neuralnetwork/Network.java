@@ -42,8 +42,8 @@ public class Network implements Serializable {
     public void addInputData(List<Double> inputValues) {
         validateInputValues(inputValues);
         for(Neuron inputNeuron:neuronsInInputLayer) {
+            inputNeuron.cleanSources();
             for(Double inputValue:inputValues) {
-                inputNeuron.cleanSources();
                 inputNeuron.registerSource(new StaticSource(inputValue));
             }
         }
