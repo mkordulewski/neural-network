@@ -1,4 +1,4 @@
-package pl.kordulewski.ai.neuralnetwork.runner_words.generator;
+package pl.kordulewski.ai.neuralnetwork.runner.words.generator;
 
 import org.junit.Test;
 

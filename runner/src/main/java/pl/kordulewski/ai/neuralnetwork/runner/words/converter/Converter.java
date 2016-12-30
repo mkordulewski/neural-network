@@ -1,4 +1,4 @@
-package pl.kordulewski.ai.neuralnetwork.runner_words.converter;
+package pl.kordulewski.ai.neuralnetwork.runner.words.converter;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

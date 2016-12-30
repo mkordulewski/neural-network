@@ -1,9 +1,9 @@
-package pl.kordulewski.ai.neuralnetwork.runner_words;
+package pl.kordulewski.ai.neuralnetwork.runner.words;
 
 import pl.kordulewski.ai.neuralnetwork.Network;
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
-import pl.kordulewski.ai.neuralnetwork.runner_words.generator.Generator;
+import pl.kordulewski.ai.neuralnetwork.runner.words.generator.Generator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public class Runner {
+public class WordsRunner {
 
     public static void main(String... arg) {
-        new Runner().run();
+        new WordsRunner().run();
     }
 
     public void run() {
