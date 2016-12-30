@@ -135,11 +135,11 @@ public class Network implements Serializable {
         }
     }
 
-    protected void validateInputValues(List<Double> expectedOutputValues) {
-        if (expectedOutputValues == null) {
+    protected void validateInputValues(List<Double> inputValues) {
+        if (inputValues == null) {
             throw new RuntimeException("Input collection cannot be null");
         }
-        for (Double d : expectedOutputValues) {
+        for (Double d : inputValues) {
             if (d == null) {
                 throw new RuntimeException("Input value cannot be null");
             }
