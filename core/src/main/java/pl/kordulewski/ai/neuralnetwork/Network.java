@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Network implements Serializable {
 
-    private static final int NUMBER_OF_EPOCHS = 1000;
+    private static final int NUMBER_OF_EPOCHS = 100000;
 
     List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
     List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
