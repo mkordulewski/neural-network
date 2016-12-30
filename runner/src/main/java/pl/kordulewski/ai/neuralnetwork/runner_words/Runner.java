@@ -1,6 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork.runner_words;
 
 import pl.kordulewski.ai.neuralnetwork.Network;
+import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
 import pl.kordulewski.ai.neuralnetwork.runner_words.generator.Generator;
 
@@ -29,7 +30,7 @@ public class Runner {
             System.out.println("  " + s);
         }
         // generate the network
-        Network network = new NetworkGenerator().generate(32, 8, 1);
+        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 32, 8, 1);
         // TODO learn the network
         // TODO generate random testing data
         // TODO test the network
