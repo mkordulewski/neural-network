@@ -12,6 +12,15 @@ public class Generator {
     private static final int NUMBER_OF_WORDS = 100;
     private static final int WORD_LENGTH = 4;
 
+    private static Generator generator;
+
+    public static Generator getInstance() {
+        if (generator == null) {
+            generator = new Generator();
+        }
+        return generator;
+    }
+
     public List<String> generatePositiveInputData() {
         List<String> result = new ArrayList<String>();
         for (String c1: new String[]{"m", "M"}) {
