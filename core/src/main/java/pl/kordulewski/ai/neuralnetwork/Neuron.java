@@ -1,8 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunction;
-import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionLibrary;
-import pl.kordulewski.ai.neuralnetwork.activation.BipolarSigmoidalFunction;
+import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 import pl.kordulewski.ai.neuralnetwork.generator.WeightGenerator;
 
 import java.io.Serializable;
@@ -16,7 +15,7 @@ public class Neuron implements Source, Serializable {
 
     private static final double LEARNING_RATE = 1;
 
-    private ActivationFunction activationFunction = ActivationFunctionLibrary.UNIPOLAR_SIGMOIDAL;
+    private ActivationFunction activationFunction;
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private Double cachedOutputValue;
@@ -24,10 +23,12 @@ public class Neuron implements Source, Serializable {
     private boolean corrected = false;
     private double sigma = 0.0;
 
-    public Neuron() {
+    public Neuron(ActivationFunctionType activationFunctionType) {
+        activationFunction = activationFunctionType.getFunction();
     }
 
-    public Neuron(String name) {
+    public Neuron(ActivationFunctionType activationFunctionType, String name) {
+        activationFunction = activationFunctionType.getFunction();
         if (name != null) {
             this.name = name;
         }

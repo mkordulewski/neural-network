@@ -1,6 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
 import org.junit.Test;
+import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,9 +20,9 @@ public class NetworkTest {
      */
     @Test
     public void testAddInputData() {
-        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron());
-        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron());
-        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
+        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
+        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
         Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
         List<Double> inputData = Arrays.asList(0.0);
         network.addInputData(inputData);
@@ -33,9 +34,9 @@ public class NetworkTest {
      */
     @Test(expected = RuntimeException.class)
     public void validateInputValues1() {
-        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron());
-        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron());
-        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
+        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
+        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
         Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
         network.addInputData(null);
     }
@@ -46,9 +47,9 @@ public class NetworkTest {
      */
     @Test(expected = RuntimeException.class)
     public void validateInputValues2() {
-        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron(), new Neuron());
-        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron(), new Neuron());
-        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron());
+        List<Neuron> neuronsInInputLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL), new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
+        List<Neuron> neuronsInHiddenLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL), new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
+        List<Neuron> neuronsInOutputLayer = Arrays.asList(new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL));
         Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
         List<Double> inputData = Arrays.asList(1.0, null);
         network.addInputData(inputData);

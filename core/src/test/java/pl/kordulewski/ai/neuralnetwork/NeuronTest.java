@@ -1,6 +1,7 @@
 package pl.kordulewski.ai.neuralnetwork;
 
 import org.junit.Test;
+import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
@@ -16,8 +17,8 @@ public class NeuronTest {
      */
     @Test
     public void testRegisterSource() {
-        Neuron neuron = new Neuron();
-        Neuron neuron2 = new Neuron();
+        Neuron neuron = new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL);
+        Neuron neuron2 = new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL);
         neuron2.registerSource(new StaticSource(-1));
         neuron2.registerSource(new StaticSource(0));
         neuron.registerSource(neuron2);
@@ -32,7 +33,7 @@ public class NeuronTest {
      */
     @Test
     public void testGetSources0() {
-        Neuron neuron = new Neuron();
+        Neuron neuron = new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL);
         assertThat(neuron.getSources().size()).isEqualTo(0);
     }
 
@@ -42,7 +43,7 @@ public class NeuronTest {
      */
     @Test
     public void testGetSources() {
-        Neuron neuron = new Neuron();
+        Neuron neuron = new Neuron(ActivationFunctionType.UNIPOLAR_SIGMOIDAL);
         neuron.registerSource(new StaticSource(-1));
         neuron.registerSource(new StaticSource(0));
         neuron.registerSource(new StaticSource(1));
