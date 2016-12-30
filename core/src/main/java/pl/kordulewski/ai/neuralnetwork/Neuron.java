@@ -24,7 +24,7 @@ public class Neuron implements Source, Serializable {
     private double sigma = 0.0;
 
     public Neuron(ActivationFunctionType activationFunctionType) {
-        activationFunction = activationFunctionType.getFunction();
+        this(activationFunctionType, "");
     }
 
     public Neuron(ActivationFunctionType activationFunctionType, String name) {
