@@ -5,7 +5,6 @@ import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
 import pl.kordulewski.ai.neuralnetwork.runner.words.generator.Generator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,8 +18,7 @@ public class WordsRunner {
 
     public void run() {
         List<String> positiveLearningData = new Generator().generatePositiveInputData();
-        // TODO generate negative learning data
-        List<String> negativeLearningData = new ArrayList<>();
+        List<String> negativeLearningData = new Generator().generateNegativeInputData();
         System.out.println("Positive learning data [" + positiveLearningData.size() + "]:");
         for (String s : positiveLearningData) {
             System.out.println("  " + s);
