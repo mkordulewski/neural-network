@@ -11,14 +11,14 @@ import java.util.List;
 /**
  * @author Michał Kordulewski
  */
-public class SimpleRunner {
+public class SimpleRunner111 {
 
     public static void main(String... arg) {
-        new SimpleRunner().run();
+        new SimpleRunner111().run();
     }
 
     public void run() {
-        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 3, 3, 1);
+        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 1, 1, 1);
         List<Double> inputValues = Arrays.asList(0.666);
         List<Double> expectedOutputData = Arrays.asList(1.0);
         // testing 1
