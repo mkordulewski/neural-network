@@ -1,1 +1,1 @@
-# Simple neural network
+# Java neural network
