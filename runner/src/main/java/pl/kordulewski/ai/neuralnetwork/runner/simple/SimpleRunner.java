@@ -4,13 +4,9 @@ import pl.kordulewski.ai.neuralnetwork.Network;
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
 import pl.kordulewski.ai.neuralnetwork.data.LearningData;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
-import pl.kordulewski.ai.neuralnetwork.runner_words.generator.Generator;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.assertj.core.api.StrictAssertions.assertThat;
 
 /**
  * @author Michał Kordulewski
@@ -38,8 +34,5 @@ public class SimpleRunner {
         System.out.format("%10.5f%n", network.getNeuronsInOutputLayer().get(0).getValue());
         System.out.print("diff:                   ");
         System.out.format("%10.5f%n", Math.abs(expectedOutputData.get(0).doubleValue() - network.getNeuronsInOutputLayer().get(0).getValue()));
-        assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(3);
-        assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(3);
-        assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);
     }
 }
