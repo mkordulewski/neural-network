@@ -1,7 +1,8 @@
-package pl.kordulewski.ai.neuralnetwork;
+package pl.kordulewski.ai.neuralnetwork.runner_words;
 
+import pl.kordulewski.ai.neuralnetwork.Network;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
-import pl.kordulewski.ai.neuralnetwork.generator.Generator;
+import pl.kordulewski.ai.neuralnetwork.runner_words.generator.Generator;
 
 import java.util.ArrayList;
 import java.util.List;
