@@ -53,8 +53,13 @@ public class WordsRunner {
         }
         // generate the network
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 32, 8, 1);
+        // learning the network
         network.learn(allLearningDataList);
-        // TODO test the network
+        // testing the network
+        String word = "MIKE";
+        network.addInputData(Converter.getInstance().convert(word));
+        double result = network.getNeuronsInOutputLayer().get(0).getValue();
+        System.out.println(word + " -> " + interpretResult(result));
     }
 
     private boolean interpretResult(double result) {
