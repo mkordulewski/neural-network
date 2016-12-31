@@ -9,6 +9,15 @@ import java.util.List;
  */
 public class Converter {
 
+    private static Converter converter;
+
+    public static Converter getInstance() {
+        if (converter == null) {
+            converter = new Converter();
+        }
+        return converter;
+    }
+
     public List<Double> convert(String word) {
         List<Double> result = new ArrayList<Double>();
         if (word == null) {
