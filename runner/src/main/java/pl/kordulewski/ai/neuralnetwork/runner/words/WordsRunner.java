@@ -2,9 +2,13 @@ package pl.kordulewski.ai.neuralnetwork.runner.words;
 
 import pl.kordulewski.ai.neuralnetwork.Network;
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
+import pl.kordulewski.ai.neuralnetwork.data.LearningData;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
+import pl.kordulewski.ai.neuralnetwork.runner.words.converter.Converter;
 import pl.kordulewski.ai.neuralnetwork.runner.words.generator.Generator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,6 +24,16 @@ public class WordsRunner {
         // preparing data
         List<String> positiveStringLearningData = Generator.getInstance().generatePositiveInputData();
         List<String> negativeStringLearningData = Generator.getInstance().generateNegativeInputData();
+        List<LearningData> positiveLearningDataList = new ArrayList<>();
+        for (String word : positiveStringLearningData) {
+            List<Double> inputData = Converter.getInstance().convert(word);
+            List<Double> expectedResult = Arrays.asList(1.0);
+            positiveLearningDataList.add(new LearningData(inputData, expectedResult));
+        }
+        List<LearningData> negativeLearningDataList = new ArrayList<>();
+        for (String s : negativeStringLearningData) {
+            // TODO
+        }
         // show data
         System.out.println("Positive learning data [elements: " + positiveStringLearningData.size() + "]:");
         for (String s : positiveStringLearningData) {
