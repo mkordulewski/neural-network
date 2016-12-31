@@ -51,7 +51,7 @@ public class WordsRunner {
         }
         // generate the network
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 32, 8, 1);
-        // TODO learn the network
+        network.learn(allLearningDataList);
         // TODO test the network
     }
 
