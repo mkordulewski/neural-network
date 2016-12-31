@@ -39,7 +39,10 @@ public class SimpleRunner111 {
                 new LearningData(Arrays.asList(1.0), Arrays.asList(1.0))
         );
         List<LearningData> testingDataList = Arrays.asList(
-                new LearningData(Arrays.asList(0.7), Arrays.asList(1.0))
+                new LearningData(Arrays.asList(0.0), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.25), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.7), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(1.0), Arrays.asList(1.0))
         );
         // testing before learning
         network.addInputData(learningDataList.get(0).getInputValues());
