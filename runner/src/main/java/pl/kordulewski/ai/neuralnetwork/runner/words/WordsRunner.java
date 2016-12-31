@@ -36,6 +36,9 @@ public class WordsRunner {
             List<Double> expectedResult = Arrays.asList(0.0);
             negativeLearningDataList.add(new LearningData(inputData, expectedResult));
         }
+        List<LearningData> allLearningDataList = new ArrayList<>();
+        allLearningDataList.addAll(positiveLearningDataList);
+        allLearningDataList.addAll(negativeLearningDataList);
         // show data
         System.out.println("Positive learning data [elements: " + positiveStringLearningData.size() + "]:");
         for (String s : positiveStringLearningData) {
