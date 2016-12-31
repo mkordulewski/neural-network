@@ -7,21 +7,18 @@ import java.util.Random;
  */
 public class WeightGenerator {
 
-    public static final double MIN = -1;
-    public static final double MAX = 1;
+    public final double min;
+    public final double max;
     private static final Random generator = new Random();
-    private static WeightGenerator weightGenerator;
 
-    public double nextRandomWeight() {
-        double randomValue = MIN + (MAX - MIN) * generator.nextDouble();
-        return randomValue;
+    public WeightGenerator(double min, double max) {
+        this.min = min;
+        this.max = max;
     }
 
-    public synchronized static WeightGenerator getInstance() {
-        if (weightGenerator == null) {
-            weightGenerator = new WeightGenerator();
-        }
-        return weightGenerator;
+    public double nextRandomWeight() {
+        double randomValue = min + (max - min) * generator.nextDouble();
+        return randomValue;
     }
 
 }

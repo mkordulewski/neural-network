@@ -16,7 +16,7 @@ public class WeightGeneratorTest {
 
     @Before
     public void before() {
-        generator = new WeightGenerator();
+        generator = new WeightGenerator(0.0, 1.0);
     }
 
     /**

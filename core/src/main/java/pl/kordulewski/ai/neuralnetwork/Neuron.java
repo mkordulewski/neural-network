@@ -1,8 +1,6 @@
 package pl.kordulewski.ai.neuralnetwork;
 
-import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunction;
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
-import pl.kordulewski.ai.neuralnetwork.generator.WeightGenerator;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ public class Neuron implements Source, Serializable {
 
     private static final double LEARNING_RATE = 1;
 
-    private ActivationFunction activationFunction;
+    private ActivationFunctionType activationFunctionType;
     private List<Source> sources = new ArrayList<Source>();
     private List<Double> weights = new ArrayList<Double>();
     private Double cachedOutputValue;
@@ -28,7 +26,7 @@ public class Neuron implements Source, Serializable {
     }
 
     public Neuron(ActivationFunctionType activationFunctionType, String name) {
-        activationFunction = activationFunctionType.getFunction();
+        activationFunctionType = activationFunctionType;
         if (name != null) {
             this.name = name;
         }
@@ -40,7 +38,7 @@ public class Neuron implements Source, Serializable {
 
     public void registerSource(Source source) {
         if (weights.size() == sources.size()) {
-            weights.add(WeightGenerator.getInstance().nextRandomWeight());
+            weights.add(activationFunctionType.getWeightGenerator().nextRandomWeight());
         }
         sources.add(source);
     }
@@ -53,7 +51,7 @@ public class Neuron implements Source, Serializable {
         for (int i=0; i<sources.size();i++) {
             input += sources.get(i).getValue() * weights.get(i);
         }
-        cachedOutputValue = activationFunction.calculate(input);
+        cachedOutputValue = activationFunctionType.getFunction().calculate(input);
         return cachedOutputValue;
     }
 
@@ -82,7 +80,7 @@ public class Neuron implements Source, Serializable {
             // new weights
             for (int i=0; i<weights.size();i++) {
                 double x = sources.get(i).getValue();
-                weights.set(i, weights.get(i)+LEARNING_RATE*sigma*activationFunction.derivative( x ) * x);
+                weights.set(i, weights.get(i)+LEARNING_RATE*sigma*activationFunctionType.getFunction().derivative(x) * x);
             }
             corrected = true;
         }
