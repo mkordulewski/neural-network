@@ -43,6 +43,17 @@ public class ConverterTest {
      */
     @Test
     public void testConvertStringToBinary1Char() {
+        binary = converter.convertStringToBinary("1");
+        assertThat(binary).isNotNull();
+        assertThat(binary).isNotEmpty();
+        assertThat(binary.length()).isEqualTo(7);
+    }
+
+    /**
+     * @see Converter#convertStringToBinary(String)
+     */
+    @Test
+    public void testConvertStringToBinaryAChar() {
         binary = converter.convertStringToBinary("a");
         assertThat(binary).isNotNull();
         assertThat(binary).isNotEmpty();
