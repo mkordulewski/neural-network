@@ -75,7 +75,7 @@ public class WordsRunner {
         for (String testingWord : testingWords) {
             network.addInputData(Converter.getInstance().convert(testingWord));
             testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
-            System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult));
+            System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult) + " [" + testingResult + "]");
         }
     }
 
