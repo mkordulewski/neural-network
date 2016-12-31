@@ -19,24 +19,31 @@ public class SimpleRunner331 {
 
     public void run() {
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 3, 3, 1);
-        List<Double> inputValues = Arrays.asList(1.0, 0.0, 0.0);
-        List<Double> expectedOutputData = Arrays.asList(1.0);
+        List<LearningData> learningDataList = Arrays.asList(
+                new LearningData(Arrays.asList(0.0, 0.0, 0.0), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(1.0, 0.0, 0.0), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.0, 1.0, 0.0), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.0, 0.0, 1.0), Arrays.asList(1.0))
+        );
+        List<LearningData> testingDataList = Arrays.asList(
+                new LearningData(Arrays.asList(0.0, 0.0, 1.0), Arrays.asList(1.0))
+        );
         // testing before learning
-        network.addInputData(inputValues);
+        network.addInputData(learningDataList.get(0).getInputValues());
         System.out.print("output before learning: ");
         System.out.format("%10.5f%n", network.getNeuronsInOutputLayer().get(0).getValue());
         // learning
-        network.learn(Arrays.asList(
-            new LearningData(Arrays.asList(0.0, 0.0, 0.0), Arrays.asList(0.0)),
-            new LearningData(inputValues, expectedOutputData),
-            new LearningData(Arrays.asList(0.0, 1.0, 0.0), Arrays.asList(1.0)),
-            new LearningData(Arrays.asList(0.0, 0.0, 1.0), Arrays.asList(1.0))
-        ));
+        network.learn(learningDataList);
         // testing after learning
-        network.addInputData(inputValues);
+        network.addInputData(testingDataList.get(0).getInputValues());
+        System.out.println();
+        System.out.print("testing value        :  ");
+        System.out.format("%10.5f%n", testingDataList.get(0).getInputValues().get(0));
+        System.out.print("expected output      :  ");
+        System.out.format("%10.5f%n", testingDataList.get(0).getExpectedOutputData().get(0).doubleValue());
         System.out.print("output after learning:  ");
         System.out.format("%10.5f%n", network.getNeuronsInOutputLayer().get(0).getValue());
         System.out.print("diff:                   ");
-        System.out.format("%10.5f%n", Math.abs(expectedOutputData.get(0).doubleValue() - network.getNeuronsInOutputLayer().get(0).getValue()));
+        System.out.format("%10.5f%n", Math.abs(testingDataList.get(0).getExpectedOutputData().get(0).doubleValue() - network.getNeuronsInOutputLayer().get(0).getValue()));
     }
 }

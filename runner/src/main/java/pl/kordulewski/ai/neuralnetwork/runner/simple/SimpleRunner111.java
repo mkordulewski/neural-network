@@ -54,7 +54,6 @@ public class SimpleRunner111 {
         System.out.format("%10.5f%n", testingDataList.get(0).getInputValues().get(0));
         System.out.print("expected output      :  ");
         System.out.format("%10.5f%n", testingDataList.get(0).getExpectedOutputData().get(0).doubleValue());
-        System.out.println();
         System.out.print("output after learning:  ");
         System.out.format("%10.5f%n", network.getNeuronsInOutputLayer().get(0).getValue());
         System.out.print("diff:                   ");
