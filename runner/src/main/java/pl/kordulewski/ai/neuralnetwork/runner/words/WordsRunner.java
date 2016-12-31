@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class WordsRunner {
 
-    private static final double INTERPRET_THRESHOLD = 0.5;
+    private static final double INTERPRET_THRESHOLD = 0.8;
     private static final double VALUE_TRUE = 1.0;
     private static final double VALUE_FALSE = 0.0;
     private static final String MESSAGE_LEARNING = "Learning in progres...";
@@ -64,15 +64,19 @@ public class WordsRunner {
         network.learn(allLearningDataList);
         System.out.println(MESSAGE_RESULTS);
         // testing the network: 1
-        testingWord = "MIKE";
-        network.addInputData(Converter.getInstance().convert(testingWord));
-        testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
-        System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult));
-        // testing the network: 2
-        testingWord = "ABCD";
-        network.addInputData(Converter.getInstance().convert(testingWord));
-        testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
-        System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult));
+        List<String> testingWords = Arrays.asList(
+                "MIKE",
+                "mike",
+                "mika",
+                "mixy",
+                "ABCD",
+                "XYZA"
+        );
+        for (String testingWord : testingWords) {
+            network.addInputData(Converter.getInstance().convert(testingWord));
+            testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
+            System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult));
+        }
     }
 
     private boolean interpretResult(double result) {
