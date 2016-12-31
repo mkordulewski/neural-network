@@ -25,9 +25,10 @@ public class WordsRunner {
         for (String s : positiveStringLearningData) {
             System.out.println("  " + s);
         }
-        System.out.println("Negative learning data [" + negativeStringLearningData.size() + "]:");
-        for (String s : negativeStringLearningData) {
-            System.out.println("  " + s);
+        int howManyFirstElements = 20;
+        System.out.println("Negative learning data [" + negativeStringLearningData.size() + "] - first " + howManyFirstElements + ":");
+        for (int i = 0; i < howManyFirstElements && i < negativeStringLearningData.size(); i++) {
+            System.out.println("  " + negativeStringLearningData.get(i));
         }
         // generate the network
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 32, 8, 1);
