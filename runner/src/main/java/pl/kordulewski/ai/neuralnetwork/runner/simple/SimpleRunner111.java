@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Neural network returns value 1.0 if input data is equal or greater than 0.5. Otherwise returns value 0.0.
+ *
  * @author Michał Kordulewski
  */
 public class SimpleRunner111 {

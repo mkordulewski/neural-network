@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Logic OR gate modelled on neural network
+ *
  * @author Michał Kordulewski
  */
 public class SimpleRunner331 {
@@ -26,7 +28,7 @@ public class SimpleRunner331 {
                 new LearningData(Arrays.asList(0.0, 0.0, 1.0), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(1.0, 1.0, 0.0), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(1.0, 0.0, 1.0), Arrays.asList(1.0)),
-                new LearningData(Arrays.asList(1.0, 1.0, 0.0), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.0, 1.0, 1.0), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(1.0, 1.0, 1.0), Arrays.asList(1.0))
         );
         List<LearningData> testingDataList = Arrays.asList(
