@@ -44,9 +44,10 @@ public class Neuron implements Source, Serializable {
     }
 
     public double getValue() {
-        if (cachedOutputValue != null) {
-            return cachedOutputValue;
-        }
+        // FIXME
+//        if (cachedOutputValue != null) {
+//            return cachedOutputValue;
+//        }
         double input = 0;
         for (int i=0; i<sources.size();i++) {
             input += sources.get(i).getValue() * weights.get(i);
