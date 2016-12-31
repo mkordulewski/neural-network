@@ -26,7 +26,7 @@ public class Neuron implements Source, Serializable {
     }
 
     public Neuron(ActivationFunctionType activationFunctionType, String name) {
-        activationFunctionType = activationFunctionType;
+        this.activationFunctionType = activationFunctionType;
         if (name != null) {
             this.name = name;
         }
