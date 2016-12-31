@@ -19,6 +19,8 @@ public class WordsRunner {
     private static final double INTERPRET_THRESHOLD = 0.8;
     private static final double VALUE_TRUE = 1.0;
     private static final double VALUE_FALSE = 0.0;
+    private static final String MESSAGE_LEARNING = "Learning in progres...";
+    private static final String MESSAGE_RESULTS = "Testing results: ";
 
     public static void main(String... arg) {
         new WordsRunner().run();
@@ -56,12 +58,14 @@ public class WordsRunner {
         // generate the network
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 28, 8, 1);
         // learning the network
+        System.out.println(MESSAGE_LEARNING);
         network.learn(allLearningDataList);
+        System.out.println(MESSAGE_RESULTS);
         // testing the network
         String word = "MIKE";
         network.addInputData(Converter.getInstance().convert(word));
         double result = network.getNeuronsInOutputLayer().get(0).getValue();
-        System.out.println(word + " -> " + interpretResult(result));
+        System.out.println("  "+ word + " -> " + interpretResult(result));
     }
 
     private boolean interpretResult(double result) {
