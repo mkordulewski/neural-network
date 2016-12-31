@@ -16,6 +16,8 @@ import java.util.List;
  */
 public class WordsRunner {
 
+    private static final double INTERPRET_THRESHOLD = 0.8;
+
     public static void main(String... arg) {
         new WordsRunner().run();
     }
@@ -53,6 +55,14 @@ public class WordsRunner {
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 32, 8, 1);
         network.learn(allLearningDataList);
         // TODO test the network
+    }
+
+    private boolean interpretResult(double result) {
+        if (result > INTERPRET_THRESHOLD) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
