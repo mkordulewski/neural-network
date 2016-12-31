@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class WordsRunner {
 
-    private static final double INTERPRET_THRESHOLD = 0.8;
+    private static final double INTERPRET_THRESHOLD = 0.5;
     private static final double VALUE_TRUE = 1.0;
     private static final double VALUE_FALSE = 0.0;
     private static final String MESSAGE_LEARNING = "Learning in progres...";
