@@ -17,6 +17,8 @@ import java.util.List;
 public class WordsRunner {
 
     private static final double INTERPRET_THRESHOLD = 0.8;
+    private static final double VALUE_TRUE = 1.0;
+    private static final double VALUE_FALSE = 0.0;
 
     public static void main(String... arg) {
         new WordsRunner().run();
@@ -29,13 +31,13 @@ public class WordsRunner {
         List<LearningData> positiveLearningDataList = new ArrayList<>();
         for (String word : positiveStringLearningData) {
             List<Double> inputData = Converter.getInstance().convert(word);
-            List<Double> expectedResult = Arrays.asList(1.0);
+            List<Double> expectedResult = Arrays.asList(VALUE_TRUE);
             positiveLearningDataList.add(new LearningData(inputData, expectedResult));
         }
         List<LearningData> negativeLearningDataList = new ArrayList<>();
         for (String word : negativeStringLearningData) {
             List<Double> inputData = Converter.getInstance().convert(word);
-            List<Double> expectedResult = Arrays.asList(0.0);
+            List<Double> expectedResult = Arrays.asList(VALUE_FALSE);
             negativeLearningDataList.add(new LearningData(inputData, expectedResult));
         }
         List<LearningData> allLearningDataList = new ArrayList<>();
