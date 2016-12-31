@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Converter {
 
-    private static final int BITS = 7;
+    private static final int MINIMAL_NUMBER_OF_BITS = 7;
 
     private static Converter converter;
 
@@ -41,8 +41,8 @@ public class Converter {
         if (string == null || "".equals(string))
             return "";
         String result = new BigInteger(string.getBytes()).toString(2);
-        if (result.length() < BITS) {
-            int diff = BITS - result.length();
+        if (result.length() < MINIMAL_NUMBER_OF_BITS) {
+            int diff = MINIMAL_NUMBER_OF_BITS - result.length();
             for (int i=0; i<diff; i++) {
                 result = "0" + result;
             }
