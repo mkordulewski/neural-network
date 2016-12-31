@@ -52,9 +52,9 @@ public class WordsRunner {
         for (String s : positiveStringLearningData) {
             System.out.println("  " + s);
         }
-        int howManyFirstElements = 20;
-        System.out.println("Negative learning data [elements: " + negativeStringLearningData.size() + "] - first " + howManyFirstElements + ":");
-        for (int i = 0; i < howManyFirstElements && i < negativeStringLearningData.size(); i++) {
+        int howManyFirstElementsToShow = 10;
+        System.out.println("Negative learning data [elements: " + negativeStringLearningData.size() + "] - first " + howManyFirstElementsToShow + ":");
+        for (int i = 0; i < howManyFirstElementsToShow && i < negativeStringLearningData.size(); i++) {
             System.out.println("  " + negativeStringLearningData.get(i));
         }
         // generate the network
