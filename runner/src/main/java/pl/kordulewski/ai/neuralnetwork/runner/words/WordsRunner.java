@@ -18,15 +18,15 @@ public class WordsRunner {
 
     public void run() {
         // preparing data
-        List<String> positiveLearningData = Generator.getInstance().generatePositiveInputData();
-        List<String> negativeLearningData = Generator.getInstance().generateNegativeInputData();
+        List<String> positiveStringLearningData = Generator.getInstance().generatePositiveInputData();
+        List<String> negativeStringLearningData = Generator.getInstance().generateNegativeInputData();
         // show data
-        System.out.println("Positive learning data [" + positiveLearningData.size() + "]:");
-        for (String s : positiveLearningData) {
+        System.out.println("Positive learning data [" + positiveStringLearningData.size() + "]:");
+        for (String s : positiveStringLearningData) {
             System.out.println("  " + s);
         }
-        System.out.println("Negative learning data [" + negativeLearningData.size() + "]:");
-        for (String s : negativeLearningData) {
+        System.out.println("Negative learning data [" + negativeStringLearningData.size() + "]:");
+        for (String s : negativeStringLearningData) {
             System.out.println("  " + s);
         }
         // generate the network
