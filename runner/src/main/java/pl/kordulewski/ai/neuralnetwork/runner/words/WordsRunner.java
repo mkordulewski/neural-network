@@ -21,6 +21,8 @@ public class WordsRunner {
     private static final double VALUE_FALSE = 0.0;
     private static final String MESSAGE_LEARNING = "Learning in progres...";
     private static final String MESSAGE_RESULTS = "Testing results: ";
+    private String testingWord;
+    private double testingResult;
 
     public static void main(String... arg) {
         new WordsRunner().run();
@@ -61,11 +63,16 @@ public class WordsRunner {
         System.out.println(MESSAGE_LEARNING);
         network.learn(allLearningDataList);
         System.out.println(MESSAGE_RESULTS);
-        // testing the network
-        String word = "MIKE";
-        network.addInputData(Converter.getInstance().convert(word));
-        double result = network.getNeuronsInOutputLayer().get(0).getValue();
-        System.out.println("  "+ word + " -> " + interpretResult(result));
+        // testing the network: 1
+        testingWord = "MIKE";
+        network.addInputData(Converter.getInstance().convert(testingWord));
+        testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
+        System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult));
+        // testing the network: 2
+        testingWord = "ABCD";
+        network.addInputData(Converter.getInstance().convert(testingWord));
+        testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
+        System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult));
     }
 
     private boolean interpretResult(double result) {
