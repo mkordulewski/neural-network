@@ -58,8 +58,6 @@ public class NetworkGeneratorTest {
     @Test
     public void test333() {
         Network network = generator.generate(3,3,3);
-        List<Double> expectedOutputValues = Arrays.asList(1.0,1.0,1.0);
-        network.learnOld(expectedOutputValues);
         assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(3);
         assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(3);
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(3);

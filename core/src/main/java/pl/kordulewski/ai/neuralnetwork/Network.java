@@ -77,37 +77,6 @@ public class Network implements Serializable {
         }
     }
 
-    // TODO to remove
-    public void learnOld(List<Double> expectedOutputValues) {
-        // validate
-        validateExpectedOutputValues(expectedOutputValues);
-        // learn
-        learnOldMultipleEpochs(expectedOutputValues, NUMBER_OF_EPOCHS);
-    }
-
-    // TODO to remove
-    protected void learnOldMultipleEpochs(List<Double> expectedOutputValues, int numberOfEpochs) {
-        for (int epoch = 0; epoch<numberOfEpochs; epoch++) {
-            // calculating output values
-            for (Neuron neuron : getNeuronsInOutputLayer()) {
-                neuron.getValue();
-            }
-            // expected values
-            for (int i = 0; i < getNeuronsInOutputLayer().size(); i++) {
-                getNeuronsInOutputLayer().get(i).expected(expectedOutputValues.get(i));
-            }
-            // correcting weights
-            for (Neuron neuron : getNeuronsInOutputLayer()) {
-                neuron.correctWeights();
-            }
-            // cleaning temporary variables
-            for (Neuron neuron : getNeuronsInOutputLayer()) {
-                neuron.clean();
-            }
-        }
-    }
-
-    // TODO to test
     protected void validateLearningData(List<LearningData> LearningDataList) {
         if (LearningDataList == null) {
             throw new RuntimeException("Learning data cannot be null");
@@ -142,18 +111,6 @@ public class Network implements Serializable {
         for (Double d : inputValues) {
             if (d == null) {
                 throw new RuntimeException("Input value cannot be null");
-            }
-        }
-    }
-
-    // TODO to remove
-    protected void validateExpectedOutputValues(List<Double> expectedOutputValues) {
-        if (expectedOutputValues.size() != neuronsInOutputLayer.size()) {
-            throw new RuntimeException("List sizes are not equal");
-        }
-        for (Double d : expectedOutputValues) {
-            if (d == null) {
-                throw new RuntimeException("Expected output value cannot be null");
             }
         }
     }
