@@ -46,7 +46,7 @@ public class ConverterTest {
         binary = converter.convertStringToBinary("a");
         assertThat(binary).isNotNull();
         assertThat(binary).isNotEmpty();
-        assertThat(binary.length()).isEqualTo(8);
+        assertThat(binary.length()).isEqualTo(7);
     }
 
     /**
@@ -77,7 +77,7 @@ public class ConverterTest {
         result = converter.convert("a");
         assertThat(result).isNotNull();
         assertThat(result).isNotEmpty();
-        assertThat(result.size()).isEqualTo(8);
+        assertThat(result.size()).isEqualTo(7);
     }
 
     /**
@@ -88,7 +88,7 @@ public class ConverterTest {
         result = converter.convert("ab");
         assertThat(result).isNotNull();
         assertThat(result).isNotEmpty();
-        assertThat(result.size()).isEqualTo(16);
+        assertThat(result.size()).isEqualTo(14);
     }
 
     /**
@@ -99,7 +99,7 @@ public class ConverterTest {
         result = converter.convert("abc");
         assertThat(result).isNotNull();
         assertThat(result).isNotEmpty();
-        assertThat(result.size()).isEqualTo(24);
+        assertThat(result.size()).isEqualTo(21);
     }
 
     /**
@@ -110,7 +110,7 @@ public class ConverterTest {
         result = converter.convert("abcd");
         assertThat(result).isNotNull();
         assertThat(result).isNotEmpty();
-        assertThat(result.size()).isEqualTo(32);
+        assertThat(result.size()).isEqualTo(28);
     }
 
     /**

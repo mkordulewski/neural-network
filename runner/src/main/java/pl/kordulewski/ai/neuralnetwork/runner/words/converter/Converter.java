@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class Converter {
 
+    private static final int BITS = 7;
+
     private static Converter converter;
 
     public static Converter getInstance() {
@@ -23,10 +25,11 @@ public class Converter {
         if (word == null) {
             return result;
         }
-        String binary = convertStringToBinary(word);
-        for(int i=0;i<(binary.length());i++) {
-            char c = binary.charAt(i);
-            result.add(convertCharToDouble(c));
+        for (int i=0; i<word.length();i++) {
+            String s = convertStringToBinary("" + word.charAt(i));
+            for (int j=0; j<s.length();j++) {
+                result.add(convertCharToDouble(s.charAt(j)));
+            }
         }
         return result;
     }
@@ -37,7 +40,14 @@ public class Converter {
     public String convertStringToBinary(String string) {
         if (string == null || "".equals(string))
             return "";
-        return "0" + new BigInteger(string.getBytes()).toString(2);
+        String result = new BigInteger(string.getBytes()).toString(2);
+        if (result.length() < BITS) {
+            int diff = BITS - result.length();
+            for (int i=0; i<diff; i++) {
+                result = "0" + result;
+            }
+        }
+        return result;
     }
 
     /**
