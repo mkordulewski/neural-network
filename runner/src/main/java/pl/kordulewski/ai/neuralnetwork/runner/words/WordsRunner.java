@@ -52,7 +52,7 @@ public class WordsRunner {
             System.out.println("  " + negativeStringLearningData.get(i));
         }
         // generate the network
-        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 32, 8, 1);
+        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 28, 8, 1);
         // learning the network
         network.learn(allLearningDataList);
         // testing the network
