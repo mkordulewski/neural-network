@@ -57,11 +57,12 @@ public class GeneratorTest {
     }
 
     @Test
-    public void generateRandomLetter() {
-        String letter;
+    public void generateRandomChar() {
+        char letter;
         for (int i=0; i<10000; i++) {
-            letter = generator.generateRandomLetter();
-            assertThat(letter.length()).isEqualTo(1);
+            letter = generator.generateRandomChar();
+            assertThat(letter).isGreaterThanOrEqualTo(Character.toChars(65)[0]);
+            assertThat(letter).isLessThanOrEqualTo(Character.toChars(97+25)[0]);
         }
     }
 
