@@ -13,6 +13,7 @@ public class Generator {
     private static final int WORD_LENGTH = 4;
 
     private static Generator generator;
+    private Random randomGenerator = new Random();
 
     public static Generator getInstance() {
         if (generator == null) {
@@ -34,6 +35,24 @@ public class Generator {
             }
         }
         return result;
+    }
+
+    public char generateRandomChar() {
+        char letter;
+        int chooseLetterSize;
+        chooseLetterSize = randomGenerator.nextInt(2);
+        if (chooseLetterSize == 0) {
+            int bigLetter = randomGenerator.nextInt(26) + 65;
+            letter = (char) bigLetter;
+        } else {
+            int smallLetter = randomGenerator.nextInt(26) + 97;
+            letter = (char) smallLetter;
+        }
+        return letter;
+    }
+
+    public String generateRandomLetter() {
+        return "" + generateRandomChar();
     }
 
     public List<String> generateNegativeInputData(){
