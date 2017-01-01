@@ -37,6 +37,17 @@ public class Generator {
         return result;
     }
 
+    public List<String> generateNegativeFromPositiveInputData() {
+        List<String> positiveData = generatePositiveInputData();
+        List<String> result = new ArrayList<>();
+        for (String word: positiveData) {
+            for (int i=0; i<word.length();i++) {
+                // TODO
+            }
+        }
+        return result;
+    }
+
     public char generateRandomChar() {
         char letter;
         int chooseLetterSize;
