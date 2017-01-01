@@ -54,7 +54,15 @@ public class GeneratorTest {
                 }
             }
         }
+    }
 
+    @Test
+    public void generateRandomLetter() {
+        String letter;
+        for (int i=0; i<10000; i++) {
+            letter = generator.generateRandomLetter();
+            assertThat(letter.length()).isEqualTo(1);
+        }
     }
 
 }
