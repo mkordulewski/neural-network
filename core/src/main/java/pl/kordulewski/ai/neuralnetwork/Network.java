@@ -4,7 +4,9 @@ import pl.kordulewski.ai.neuralnetwork.data.LearningData;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Michał Kordulewski
@@ -49,11 +51,16 @@ public class Network implements Serializable {
         }
     }
 
-    public void learn(List<LearningData> learningDataList) {
+    public void learn(List<LearningData> inputLearningDataList) {
         // validate
-        validateLearningData(learningDataList);
+        validateLearningData(inputLearningDataList);
+        // copy
+        List<LearningData> learningDataList = new ArrayList<>(inputLearningDataList);
         // learn
         for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
+            // shuffle list
+            long seed = System.nanoTime();
+            Collections.shuffle(learningDataList, new Random(seed));
             for (LearningData learningData : learningDataList) {
                 //
                 addInputData(learningData.getInputValues());
