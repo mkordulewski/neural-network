@@ -56,19 +56,18 @@ public class Generator {
     }
 
     public List<String> generateNegativeInputData(){
-        Random generator = new Random();
         List<String> negativeInputData = new ArrayList<>();
         char letter;
         int chooseLetterSize;
         for(int i = 0; i < NUMBER_OF_WORDS; i++) {
             StringBuilder builder = new StringBuilder();
             for(int j =0; j < WORD_LENGTH; j++ ) {
-                chooseLetterSize = generator.nextInt(2);
+                chooseLetterSize = randomGenerator.nextInt(2);
                 if (chooseLetterSize == 0) {
-                    int bigLetter = generator.nextInt(26) + 65;
+                    int bigLetter = randomGenerator.nextInt(26) + 65;
                     letter = (char) bigLetter;
                 } else {
-                    int smallLetter = generator.nextInt(26) + 97;
+                    int smallLetter = randomGenerator.nextInt(26) + 97;
                     letter = (char) smallLetter;
                 }
                 builder.append(letter);
