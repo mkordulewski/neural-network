@@ -16,7 +16,11 @@ public class NetworkGenerator {
         return generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, numberOfNeuronsInInputLayer, numberOfNeuronsInHiddenLayer, numberOfNeuronsInOutputLayer);
     }
 
-    public Network generate(ActivationFunctionType activationFunctionType, int numberOfNeuronsInInputLayer, int numberOfNeuronsInHiddenLayer, int numberOfNeuronsInOutputLayer) {
+    public Network generate(ActivationFunctionType activationFunctionType, int... number) {
+        return generate(activationFunctionType, number[0], number[1], number[2]);
+    }
+
+    private Network generate(ActivationFunctionType activationFunctionType, int numberOfNeuronsInInputLayer, int numberOfNeuronsInHiddenLayer, int numberOfNeuronsInOutputLayer) {
         List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
         List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
         List<Neuron> neuronsInOutputLayer = new ArrayList<Neuron>();
