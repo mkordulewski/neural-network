@@ -42,7 +42,7 @@ public class Generator {
         List<String> result = new ArrayList<>();
         for (String word: positiveData) {
             for (int i=0; i<word.length();i++) {
-                // TODO
+                result.add(replaceChar(word, i, generateRandomChar()));
             }
         }
         return result;
