@@ -48,6 +48,10 @@ public class Generator {
         return result;
     }
 
+    public String replaceChar(String text, int position, char newLetter) {
+        return (position>0?text.substring(0,position):"") + newLetter + text.substring(position+1);
+    }
+
     public char generateRandomChar() {
         char letter;
         int chooseLetterSize;
