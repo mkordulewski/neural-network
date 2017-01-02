@@ -32,6 +32,10 @@ public class WordsRunner {
         // preparing data
         List<String> positiveStringLearningData = Generator.getInstance().generatePositiveInputData();
         List<String> negativeStringLearningData = Generator.getInstance().generateNegativeInputData();
+        List<String> negativeFromPositiveStringLearningData = Generator.getInstance().generateNegativeFromPositiveInputData();
+        List<String> allNegativeStringLearningData = new ArrayList<>();
+        allNegativeStringLearningData.addAll(negativeFromPositiveStringLearningData);
+        allNegativeStringLearningData.addAll(negativeStringLearningData);
         List<LearningData> positiveLearningDataList = new ArrayList<>();
         for (String word : positiveStringLearningData) {
             List<Double> inputData = Converter.getInstance().convert(word);
@@ -39,7 +43,7 @@ public class WordsRunner {
             positiveLearningDataList.add(new LearningData(inputData, expectedResult));
         }
         List<LearningData> negativeLearningDataList = new ArrayList<>();
-        for (String word : negativeStringLearningData) {
+        for (String word : allNegativeStringLearningData) {
             List<Double> inputData = Converter.getInstance().convert(word);
             List<Double> expectedResult = Arrays.asList(VALUE_FALSE);
             negativeLearningDataList.add(new LearningData(inputData, expectedResult));
@@ -53,9 +57,9 @@ public class WordsRunner {
             System.out.println("  " + s);
         }
         int howManyFirstElementsToShow = 10;
-        System.out.println("Negative learning data [elements: " + negativeStringLearningData.size() + "] - first " + howManyFirstElementsToShow + ":");
-        for (int i = 0; i < howManyFirstElementsToShow && i < negativeStringLearningData.size(); i++) {
-            System.out.println("  " + negativeStringLearningData.get(i));
+        System.out.println("Negative learning data [elements: " + allNegativeStringLearningData.size() + "] - first " + howManyFirstElementsToShow + ":");
+        for (int i = 0; i < howManyFirstElementsToShow && i < allNegativeStringLearningData.size(); i++) {
+            System.out.println("  " + allNegativeStringLearningData.get(i));
         }
         // generate the network
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 28, 8, 1);
