@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class Generator {
 
-    private static final int NUMBER_OF_WORDS = 100;
+    private static final int NUMBER_OF_NEGATIVE_WORDS = 50;
     private static final int WORD_LENGTH = 4;
 
     private static Generator generator;
@@ -74,7 +74,7 @@ public class Generator {
         List<String> negativeInputData = new ArrayList<>();
         char letter;
         int chooseLetterSize;
-        for(int i = 0; i < NUMBER_OF_WORDS; i++) {
+        for(int i = 0; i < NUMBER_OF_NEGATIVE_WORDS; i++) {
             StringBuilder builder = new StringBuilder();
             for(int j =0; j < WORD_LENGTH; j++ ) {
                 chooseLetterSize = randomGenerator.nextInt(2);
