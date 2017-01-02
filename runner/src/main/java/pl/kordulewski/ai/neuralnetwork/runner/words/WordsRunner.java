@@ -52,7 +52,7 @@ public class WordsRunner {
         allLearningDataList.addAll(positiveLearningDataList);
         allLearningDataList.addAll(negativeLearningDataList);
         // show data
-        System.out.println("Positive learning data [elements: " + positiveStringLearningData.size() + "]:");
+        System.out.println("Positive learning data [elements: " + positiveStringLearningData.size() + "] - all:");
         for (String s : positiveStringLearningData) {
             System.out.println("  " + s);
         }
