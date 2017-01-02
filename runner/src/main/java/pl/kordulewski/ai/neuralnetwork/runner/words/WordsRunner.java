@@ -71,8 +71,14 @@ public class WordsRunner {
         List<String> testingWords = Arrays.asList(
                 "MIKE",
                 "mike",
+                "Mike",
+                "MiKe",
+                "mIkE",
+                "MIke",
+                "miKE",
                 "mika",
                 "mixy",
+                "MoKo",
                 "ABCD",
                 "XYZA"
         );
