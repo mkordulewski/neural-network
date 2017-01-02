@@ -75,4 +75,13 @@ public class GeneratorTest {
         }
     }
 
+    @Test
+    public void replaceChar() {
+        String input = "1234";
+        assertThat(new Generator().replaceChar(input, 0, 'X')).isEqualTo("X234");
+        assertThat(new Generator().replaceChar(input, 1, 'X')).isEqualTo("1X34");
+        assertThat(new Generator().replaceChar(input, 2, 'X')).isEqualTo("12X4");
+        assertThat(new Generator().replaceChar(input, 3, 'X')).isEqualTo("123X");
+    }
+
 }
