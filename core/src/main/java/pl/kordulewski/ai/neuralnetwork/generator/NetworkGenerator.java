@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class NetworkGenerator {
 
-    public Network generate(int numberOfNeuronsInInputLayer, int numberOfNeuronsInHiddenLayer, int numberOfNeuronsInOutputLayer) {
-        return generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, numberOfNeuronsInInputLayer, numberOfNeuronsInHiddenLayer, numberOfNeuronsInOutputLayer);
+    public Network generate(int... number) {
+        return generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, number);
     }
 
     public Network generate(ActivationFunctionType activationFunctionType, int... number) {
