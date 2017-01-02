@@ -20,7 +20,7 @@ public class NetworkGeneratorTest {
     private NetworkGenerator generator = new NetworkGenerator();
 
     /**
-     * @see NetworkGenerator#generate(int, int, int)
+     * @see NetworkGenerator#generate(int...)
      */
     @Test
     public void test000() {
@@ -31,7 +31,7 @@ public class NetworkGeneratorTest {
     }
 
     /**
-     * @see NetworkGenerator#generate(int, int, int)
+     * @see NetworkGenerator#generate(int...)
      */
     @Test
     public void test111() {
@@ -42,7 +42,7 @@ public class NetworkGeneratorTest {
     }
 
     /**
-     * @see NetworkGenerator#generate(int, int, int)
+     * @see NetworkGenerator#generate(int...)
      */
     @Test
     public void test331() {
@@ -53,7 +53,7 @@ public class NetworkGeneratorTest {
     }
 
     /**
-     * @see NetworkGenerator#generate(int, int, int)
+     * @see NetworkGenerator#generate(int...)
      */
     @Test
     public void test333() {
@@ -64,7 +64,7 @@ public class NetworkGeneratorTest {
     }
 
     /**
-     * @see NetworkGenerator#generate(int, int, int)
+     * @see NetworkGenerator#generate(int...)
      */
     @Test
     public void test931() {
