@@ -15,6 +15,8 @@ public class Network implements Serializable {
 
     private static final int NUMBER_OF_EPOCHS = 1000;
 
+    private boolean shuffleLearningData = false;
+
     List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
     List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
     List<Neuron> neuronsInOutputLayer = new ArrayList<Neuron>();
@@ -59,8 +61,10 @@ public class Network implements Serializable {
         // learn
         for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
             // shuffle list
-            long seed = System.nanoTime();
-            Collections.shuffle(learningDataList, new Random(seed));
+            if (shuffleLearningData) {
+                long seed = System.nanoTime();
+                Collections.shuffle(learningDataList, new Random(seed));
+            }
             for (LearningData learningData : learningDataList) {
                 //
                 addInputData(learningData.getInputValues());
