@@ -37,12 +37,14 @@ public class Generator {
         return result;
     }
 
-    public List<String> generateNegativeFromPositiveInputData() {
+    public List<String> generateNegativeFromPositiveInputData(int multiplier) {
         List<String> positiveData = generatePositiveInputData();
         List<String> result = new ArrayList<>();
         for (String word: positiveData) {
-            for (int i=0; i<word.length();i++) {
-                result.add(replaceChar(word, i, generateRandomChar()));
+            for (int k=0; k<multiplier;k++) {
+                for (int i = 0; i < word.length(); i++) {
+                    result.add(replaceChar(word, i, generateRandomChar()));
+                }
             }
         }
         return result;
