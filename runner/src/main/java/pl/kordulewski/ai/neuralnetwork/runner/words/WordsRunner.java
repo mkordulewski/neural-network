@@ -31,7 +31,7 @@ public class WordsRunner {
     public void run() {
         // preparing data
         List<String> positiveStringLearningData = Generator.getInstance().generatePositiveInputData();
-        List<String> negativeStringLearningData = Generator.getInstance().generateNegativeInputData();
+        List<String> negativeStringLearningData = Generator.getInstance().generateNegativeInputData(100, 4);
         List<String> negativeFromPositiveStringLearningData = Generator.getInstance().generateNegativeFromPositiveInputData(1);
         List<String> allNegativeStringLearningData = new ArrayList<>();
         allNegativeStringLearningData.addAll(negativeFromPositiveStringLearningData);
