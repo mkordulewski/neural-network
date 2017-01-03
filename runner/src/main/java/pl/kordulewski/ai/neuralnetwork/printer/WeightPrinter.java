@@ -7,6 +7,15 @@ import pl.kordulewski.ai.neuralnetwork.Network;
  */
 public class WeightPrinter {
 
+    private static WeightPrinter instance;
+
+    public static WeightPrinter getInstance() {
+        if (instance == null) {
+            instance = new WeightPrinter();
+        }
+        return instance;
+    }
+
     public void printWeights(Network network) {
         // TODO
     }
