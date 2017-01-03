@@ -13,8 +13,7 @@ import java.util.Random;
  */
 public class Network implements Serializable {
 
-    private static final int NUMBER_OF_EPOCHS = 1000;
-
+    private int numberOfEpochs = 1000;
     private boolean shuffleLearningData = false;
 
     List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
@@ -59,7 +58,7 @@ public class Network implements Serializable {
         // copy
         List<LearningData> learningDataList = new ArrayList<>(inputLearningDataList);
         // learn
-        for (int epoch = 0; epoch<NUMBER_OF_EPOCHS; epoch++) {
+        for (int epoch = 0; epoch<numberOfEpochs; epoch++) {
             // shuffle list
             if (shuffleLearningData) {
                 long seed = System.nanoTime();
