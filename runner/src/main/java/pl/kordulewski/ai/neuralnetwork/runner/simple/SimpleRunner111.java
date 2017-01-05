@@ -25,10 +25,13 @@ public class SimpleRunner111 {
         Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 1, 1, 1);
         List<LearningData> learningDataList = Arrays.asList(
                 new LearningData(Arrays.asList(0.0), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.0001), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.1), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.2), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.33), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.45), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.49), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.49999), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.5), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(0.51), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(0.55), Arrays.asList(1.0)),
@@ -37,13 +40,20 @@ public class SimpleRunner111 {
                 new LearningData(Arrays.asList(0.7), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(0.77), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(0.8), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.9), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(0.98), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.9999), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(1.0), Arrays.asList(1.0))
         );
         List<LearningData> testingDataList = Arrays.asList(
                 new LearningData(Arrays.asList(0.0), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.00001), Arrays.asList(0.0)),
+                new LearningData(Arrays.asList(0.1), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.25), Arrays.asList(0.0)),
-                new LearningData(Arrays.asList(0.7), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.55), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.77), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.9), Arrays.asList(1.0)),
+                new LearningData(Arrays.asList(0.99999), Arrays.asList(1.0)),
                 new LearningData(Arrays.asList(1.0), Arrays.asList(1.0))
         );
         // testing before learning
