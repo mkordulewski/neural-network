@@ -26,7 +26,6 @@ public class NetworkGenerator {
         for (int i=0; i<number.length;i++) {
             for (int j=0; j<number[i]; j++) {
                 String name = "N." + (i + 1) + "." + (j + 1);
-                System.out.println(name);
                 list.get(i).add(new Neuron(activationFunctionType, name));
             }
         }
