@@ -44,11 +44,11 @@ public class Network implements Serializable {
 
     public void addInputData(List<Double> inputValues) {
         validateInputValues(inputValues);
-        for(Neuron inputNeuron:neuronsInInputLayer) {
-            inputNeuron.cleanSources();
-            for(Double inputValue:inputValues) {
-                inputNeuron.registerSource(new StaticSource(inputValue));
-            }
+        if (inputValues.size() != getNeuronsInInputLayer().size())
+            throw new RuntimeException("Number of input values must be the same as number of neurons in the input layer.");
+        for (int i = 0; i < inputValues.size(); i++) {
+            getNeuronsInInputLayer().get(i).cleanSources();
+            getNeuronsInInputLayer().get(i).registerSource(new StaticSource(inputValues.get(i)));
         }
     }
 
