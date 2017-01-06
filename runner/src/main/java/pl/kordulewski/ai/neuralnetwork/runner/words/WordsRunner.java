@@ -87,6 +87,7 @@ public class WordsRunner {
             testingResult = network.getNeuronsInOutputLayer().get(0).getValue();
             System.out.println("  "+ testingWord + " -> " + interpretResult(testingResult) + " [" + testingResult + "]");
         }
+        System.out.println("\nThe end");
     }
 
     private boolean interpretResult(double result) {

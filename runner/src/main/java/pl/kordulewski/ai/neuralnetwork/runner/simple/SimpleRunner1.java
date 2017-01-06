@@ -83,5 +83,6 @@ public class SimpleRunner1 {
             System.out.print("diff:                   ");
             System.out.format("%10.5f%n", Math.abs(learningData.getExpectedOutputData().get(0).doubleValue() - network.getNeuronsInOutputLayer().get(0).getValue()));
         }
+        System.out.println("\nThe end");
     }
 }
