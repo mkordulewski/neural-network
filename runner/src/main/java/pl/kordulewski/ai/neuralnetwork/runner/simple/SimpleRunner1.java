@@ -2,9 +2,7 @@ package pl.kordulewski.ai.neuralnetwork.runner.simple;
 
 import pl.kordulewski.ai.neuralnetwork.Network;
 import pl.kordulewski.ai.neuralnetwork.activation.ActivationFunctionType;
-import pl.kordulewski.ai.neuralnetwork.data.Data;
 import pl.kordulewski.ai.neuralnetwork.data.LearningData;
-import pl.kordulewski.ai.neuralnetwork.data.TestingData;
 import pl.kordulewski.ai.neuralnetwork.generator.NetworkGenerator;
 
 import java.util.Arrays;
@@ -15,10 +13,10 @@ import java.util.List;
  *
  * @author Michał Kordulewski
  */
-public class SimpleRunner111 {
+public class SimpleRunner1 {
 
     public static void main(String... arg) {
-        new SimpleRunner111().run();
+        new SimpleRunner1().run();
     }
 
     public void run() {
