@@ -22,7 +22,7 @@ public class SimpleRunner111 {
     }
 
     public void run() {
-        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 1, 1, 1);
+        Network network = new NetworkGenerator().generate(ActivationFunctionType.UNIPOLAR_SIGMOIDAL, 1);
         List<LearningData> learningDataList = Arrays.asList(
                 new LearningData(Arrays.asList(0.0), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.0001), Arrays.asList(0.0)),

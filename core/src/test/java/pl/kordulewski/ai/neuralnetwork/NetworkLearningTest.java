@@ -20,7 +20,7 @@ public class NetworkLearningTest {
     private NetworkGenerator generator = new NetworkGenerator();
 
     /**
-     * @see NetworkGenerator#generate(int, int, int)
+     * @see NetworkGenerator#generate(int...)
      */
     @Test
     public void test111() {
@@ -30,7 +30,7 @@ public class NetworkLearningTest {
         LearningData learningData = new LearningData(inputValues, expectedOutputData);
         network.learn(Arrays.asList(learningData));
         assertThat(network.getNeuronsInInputLayer().size()).isEqualTo(1);
-        assertThat(network.getNeuronsInHiddenLayer().size()).isEqualTo(1);
+        assertThat(network.getNeuronsInLayer(1).size()).isEqualTo(1);
         assertThat(network.getNeuronsInOutputLayer().size()).isEqualTo(1);
     }
 

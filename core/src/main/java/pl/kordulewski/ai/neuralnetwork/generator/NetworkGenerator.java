@@ -17,36 +17,29 @@ public class NetworkGenerator {
     }
 
     public Network generate(ActivationFunctionType activationFunctionType, int... number) {
-        return generate(activationFunctionType, number[0], number[1], number[2]);
-    }
-
-    private Network generate(ActivationFunctionType activationFunctionType, int numberOfNeuronsInInputLayer, int numberOfNeuronsInHiddenLayer, int numberOfNeuronsInOutputLayer) {
-        List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
-        List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
-        List<Neuron> neuronsInOutputLayer = new ArrayList<Neuron>();
-        for(int i=0; i<numberOfNeuronsInInputLayer; i++) {
-            neuronsInInputLayer.add(new Neuron(activationFunctionType, "N.1."+(i+1)));
+        List<List<Neuron>> list = new ArrayList<>();
+        // generate list for each layer
+        for (int i=0; i<number.length;i++) {
+            list.add(new ArrayList<Neuron>());
         }
-        for(int i=0; i<numberOfNeuronsInHiddenLayer; i++) {
-            neuronsInHiddenLayer.add(new Neuron(activationFunctionType, "N.2."+(i+1)));
-        }
-        for(int i=0; i<numberOfNeuronsInOutputLayer; i++) {
-            neuronsInOutputLayer.add(new Neuron(activationFunctionType, "N.3."+(i+1)));
-        }
-        // join neuronsInInputLayer and neuronsInHiddenLayer each other
-        for(Neuron input:neuronsInInputLayer) {
-            for(Neuron hidden:neuronsInHiddenLayer) {
-                hidden.registerSource(input);
+        // generate neurons
+        for (int i=0; i<number.length;i++) {
+            for (int j=0; j<number[i]; j++) {
+                String name = "N." + (i + 1) + "." + (j + 1);
+                System.out.println(name);
+                list.get(i).add(new Neuron(activationFunctionType, name));
             }
         }
-        // join neuronsInHiddenLayer and neuronsInOutputLayer each other
-        for(Neuron hidden:neuronsInHiddenLayer) {
-            for(Neuron output:neuronsInOutputLayer) {
-                output.registerSource(hidden);
+        // join layers
+        for (int i=0; i<(number.length-1);i++) {
+            for(Neuron input:list.get(i)) {
+                for(Neuron hidden:list.get(i+1)) {
+                    hidden.registerSource(input);
+                }
             }
         }
-        // network
-        Network network = new Network(neuronsInInputLayer, neuronsInHiddenLayer, neuronsInOutputLayer);
+        // generate network
+        Network network = new Network(list);
         return network;
     }
 

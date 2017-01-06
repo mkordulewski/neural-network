@@ -16,30 +16,34 @@ public class Network implements Serializable {
     private int numberOfEpochs = 1000;
     private boolean shuffleLearningData = false;
 
-    List<Neuron> neuronsInInputLayer = new ArrayList<Neuron>();
-    List<Neuron> neuronsInHiddenLayer = new ArrayList<Neuron>();
-    List<Neuron> neuronsInOutputLayer = new ArrayList<Neuron>();
+    List<List<Neuron>> layers = new ArrayList<>();
+
+    public Network(List<List<Neuron>> neuronsInAllLayers) {
+        for (List<Neuron> neuronsInOneLayer : neuronsInAllLayers) {
+            if (neuronsInOneLayer == null) {
+                throw new RuntimeException("null is not allowed");
+            }
+            for (Neuron neuron : neuronsInOneLayer) {
+                if (neuron == null) {
+                    throw new RuntimeException("null is not allowed");
+                }
+            }
+        }
+        this.layers = neuronsInAllLayers;
+    }
 
     public Network(List<Neuron> neuronsInInputLayer,
     List<Neuron> neuronsInHiddenLayer,
     List<Neuron> neuronsInOutputLayer) {
         if (neuronsInInputLayer==null || neuronsInHiddenLayer==null || neuronsInOutputLayer==null)
             throw new RuntimeException("null is not allowed");
-        this.neuronsInInputLayer = neuronsInInputLayer;
-        this.neuronsInHiddenLayer = neuronsInHiddenLayer;
-        this.neuronsInOutputLayer = neuronsInOutputLayer;
+        this.layers.add(neuronsInInputLayer);
+        this.layers.add(neuronsInHiddenLayer);
+        this.layers.add(neuronsInOutputLayer);
     }
 
-    public List<Neuron> getNeuronsInInputLayer() {
-        return neuronsInInputLayer;
-    }
-
-    public List<Neuron> getNeuronsInHiddenLayer() {
-        return neuronsInHiddenLayer;
-    }
-
-    public List<Neuron> getNeuronsInOutputLayer() {
-        return neuronsInOutputLayer;
+    public List<Neuron> getNeuronsInLayer(int layerNumber) {
+        return layers.get(layerNumber);
     }
 
     public void addInputData(List<Double> inputValues) {
@@ -68,19 +72,19 @@ public class Network implements Serializable {
                 //
                 addInputData(learningData.getInputValues());
                 // calculating output values
-                for (Neuron neuron : getNeuronsInOutputLayer()) {
+                for (Neuron neuron : getNeuronsInLayer(layers.size()-1)) {
                     neuron.getValue();
                 }
                 // expected values
-                for (int i = 0; i < getNeuronsInOutputLayer().size(); i++) {
-                    getNeuronsInOutputLayer().get(i).expected(learningData.getExpectedOutputData().get(i));
+                for (int i = 0; i < getNeuronsInLayer(layers.size()-1).size(); i++) {
+                    getNeuronsInLayer(layers.size()-1).get(i).expected(learningData.getExpectedOutputData().get(i));
                 }
                 // correcting weights
-                for (Neuron neuron : getNeuronsInOutputLayer()) {
+                for (Neuron neuron : getNeuronsInLayer(layers.size() - 1)) {
                     neuron.correctWeights();
                 }
                 // cleaning temporary variables
-                for (Neuron neuron : getNeuronsInOutputLayer()) {
+                for (Neuron neuron : getNeuronsInLayer(layers.size() - 1)) {
                     neuron.clean();
                 }
             }
@@ -123,6 +127,14 @@ public class Network implements Serializable {
                 throw new RuntimeException("Input value cannot be null");
             }
         }
+    }
+
+    public List<Neuron> getNeuronsInInputLayer() {
+        return layers.get(0);
+    }
+
+    public List<Neuron> getNeuronsInOutputLayer() {
+        return layers.get(layers.size()-1);
     }
 
 }
