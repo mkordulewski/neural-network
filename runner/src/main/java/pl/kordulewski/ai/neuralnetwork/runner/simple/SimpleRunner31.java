@@ -32,6 +32,7 @@ public class SimpleRunner31 {
                 new LearningData(Arrays.asList(1.0, 1.0, 1.0), Arrays.asList(1.0))
         );
         List<LearningData> testingDataList = Arrays.asList(
+                new LearningData(Arrays.asList(0.0, 0.0, 0.0), Arrays.asList(0.0)),
                 new LearningData(Arrays.asList(0.0, 0.0, 1.0), Arrays.asList(1.0))
         );
         // testing before learning
