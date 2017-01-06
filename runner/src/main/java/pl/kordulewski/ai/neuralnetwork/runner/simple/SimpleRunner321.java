@@ -13,10 +13,10 @@ import java.util.List;
  *
  * @author Michał Kordulewski
  */
-public class SimpleRunner31 {
+public class SimpleRunner321 {
 
     public static void main(String... arg) {
-        new SimpleRunner31().run();
+        new SimpleRunner321().run();
     }
 
     public void run() {
