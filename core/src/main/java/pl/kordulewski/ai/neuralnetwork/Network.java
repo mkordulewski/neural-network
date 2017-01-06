@@ -14,7 +14,7 @@ import java.util.Random;
 public class Network implements Serializable {
 
     private int numberOfEpochs = 1000;
-    private boolean shuffleLearningData = false;
+    private boolean shuffleLearningData = true;
 
     List<List<Neuron>> layers = new ArrayList<>();
 
